@@ -331,7 +331,7 @@
                 address.value = "";
                 address.disabled = true;
                 pickupDate.disabled = false;
-                note.innerText = "🏠 Pickup at store HappyPaws during operating hours only";
+                note.innerText = "🏠 Pickup at store Whiskers Pethouse during operating hours only";
             } else {
                 address.disabled = false;
                 pickupDate.disabled = true;
@@ -399,7 +399,7 @@ Total: RM ${(subtotal + shipping).toFixed(2)}
 
         /* ===== WHATSAPP ===== */
         function sendWhatsApp() {
-            const msg = encodeURIComponent("Hi HappyPaws 🐾\n\n" + whatsappMessage);
+            const msg = encodeURIComponent("Hi Whiskers Pethouse 🐾\n\n" + whatsappMessage);
             window.open(`https://wa.me/60123456789?text=${msg}`, "_blank");
             localStorage.removeItem("cart");
         }
@@ -411,3 +411,4 @@ Total: RM ${(subtotal + shipping).toFixed(2)}
 
 </body>
 </html>
+
