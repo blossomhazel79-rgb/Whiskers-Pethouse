@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shop | Whiskers Pethouse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Itim', cursive;
+    background:#FFF5E6;
+    color:#333;
+}
+
+/* ================= HEADER ================= */
+header{
+    background:#FFF5E6;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(255,153,51,0.15);
+    position: relative;
+    z-index: 10;
+}
+
+
+/* ================= PROMOTION BAR PREMIUM ================= */
+.promo-bar-premium {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 18px 30px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #FF9933, #FFBF80);
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(255,153,51,0.4), 0 0 15px rgba(255,191,128,0.3);
+    animation: slideDownFade 1s ease forwards;
+}
+
+/* Slide down + fade-in */
+@keyframes slideDownFade {
+    from {opacity: 0; transform: translateY(-30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* ================= ANIMATION KOTAK ================= */
+.pets .pet-card, .foods .food-card {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fadeSlide 0.8s forwards;
+}
+
+/* Staggered delay */
+.pets .pet-card:nth-child(1), .foods .food-card:nth-child(1){animation-delay:0.2s;}
+.pets .pet-card:nth-child(2), .foods .food-card:nth-child(2){animation-delay:0.4s;}
+.pets .pet-card:nth-child(3), .foods .food-card:nth-child(3){animation-delay:0.6s;}
+.pets .pet-card:nth-child(4), .foods .food-card:nth-child(4){animation-delay:0.8s;}
+
+@keyframes fadeSlide{
+    to {opacity:1; transform: translateX(0);}
+}
+
+
+.logo{
+    font-size:30px;
+    color:#FF9933;
+}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#555;
+    font-size:20px;
+}
+
+nav a:hover{color:#FF9933;}
+
+/* ================= PROMOTION BAR ================= */
+.promo-bar {
+    background: #FFBF80;
+    color: #4a2a00;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 18px;
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out;
+    box-shadow: 0 4px 12px rgba(255,153,51,0.2);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* ================= SHOP BANNER ================= */
+.shop-banner {
+    position: relative;
+    margin: 20px 60px 40px 60px;
+    padding: 70px;
+    border-radius: 45px;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* Video Background */
+.banner-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(0.5);
+    border-radius: 45px;
+}
+
+/* Gradient overlay */
+.shop-banner::before {
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(rgba(255,191,128,0.3), rgba(255,153,51,0.3));
+    z-index: 2;
+    border-radius: 45px;
+}
+
+/* Text overlay */
+.banner-content {
+    position: relative;
+    z-index: 3;
+}
+
+.shop-banner h1 {
+    font-size: 60px;
+    color: #4a2a00;
+}
+
+.shop-banner p {
+    font-size: 22px;
+}
+
+/* ================= SECTION BACKGROUND ================= */
+.section{
+    padding:70px 60px;
+    border-radius:35px;
+    margin:40px auto;
+    background: linear-gradient(135deg, rgba(255,191,128,0.15), rgba(255,153,51,0.1));
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.section-title{
+    text-align:center;
+    font-size:34px;
+    margin-bottom:40px;
+    color:#4a2a00;
+}
+
+/* ================= GRID ================= */
+.products, .pets, .foods, .services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+/* ================= CARD ANIMATION & GLOW ================= */
+.product-card, .pet-card, .food-card, .service-card{
+    background:white;
+    border-radius:25px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+    opacity: 0; /* start invisible */
+    transform: translateY(30px); /* start lower */
+    transition:0.35s, box-shadow 0.35s, transform 0.35s;
+}
+
+.product-card:hover, .pet-card:hover, .food-card:hover, .service-card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 0 30px rgba(255,153,51,0.5), 0 0 50px rgba(255,191,128,0.3);
+}
+
+.product-card img, .pet-card img, .food-card img, .service-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:20px;
+    margin-bottom:15px;
+    transition:.3s;
+}
+
+.product-card img:hover, .pet-card img:hover, .food-card img:hover, .service-card img:hover{
+    transform:scale(1.05);
+}
+
+.product-card p, .pet-card p, .food-card p{
+    color:#FF9933;
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+.product-card button, .pet-card button, .food-card button, .service-card button{
+    background:#FFBF80;
+    border:none;
+    padding:12px 30px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.product-card button:hover, .pet-card button:hover, .food-card button:hover, .service-card button:hover{
+    background:#FF9933;
+    color:white;
+    transform:scale(1.05);
+}
+
+/* ================= STAGGERED FADE-IN ================= */
+.staggered {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.6s forwards;
+}
+
+.staggered:nth-child(1){animation-delay:0.1s;}
+.staggered:nth-child(2){animation-delay:0.3s;}
+.staggered:nth-child(3){animation-delay:0.5s;}
+.staggered:nth-child(4){animation-delay:0.7s;}
+
+@keyframes fadeUp{
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:#FF9933;
+    color:white;
+    padding:45px;
+    text-align:center;
+    margin-top:40px;
+}
+
+@media (max-width:900px){
+    .section{padding:50px 30px;}
+    .shop-banner{margin:20px 30px; padding:50px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🐾 Whiskers Pethouse </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<!-- Tambah kat bawah header / sebelum banner -->
+<div class="promo-bar-premium">
+    🎉 Free Shipping for Orders Above RM150! 🛒
+</div>
+
+<section class="shop-banner">
+    <video class="banner-video" autoplay muted loop playsinline>
+        <source src="videos/banner.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="banner-content">
+        <h1>Pet Shop 🐾</h1>
+        <p>Your pets deserve the best care & love</p>
+    </div>
+</section>
+
+<!-- BUY A PET -->
+<section class="section">
+<h2 class="section-title">Buy A Pet 🐶🐱</h2>
+<div class="pets">
+    <div class="pet-card staggered">
+        <img src="images/sugar glider.jfif">
+        <h3>Sugar Glider 🦝</h3>
+        <p>RM 200.00</p>
+        <button onclick="window.location.href='sugarglider.html'">View Details</button>
+    </div>
+    <div class="pet-card staggered">
+        <img src="images/bsh.jfif">
+        <h3>British Shorthair Kitten 🐱</h3>
+        <p>RM 1,200.00</p>
+        <button onclick="window.location.href='bsh.html'">View Details</button>
+    </div>
+    <div class="pet-card staggered">
+        <img src="images/hamster.jfif">
+        <h3>Hamster 🐹</h3>
+        <p>RM 150.00</p>
+        <button onclick="window.location.href='hamster.html'">View Details</button>
+    </div>
+    <div class="pet-card staggered">
+        <img src="images/rabbit.jfif">
+        <h3>Mini Rabbit 🐇</h3>
+        <p>RM 350.00</p>
+        <button onclick="window.location.href='rabbit.html'">View Details</button>
+    </div>
+    <div class="pet-card staggered">
+        <img src="images/betta fish.jfif">
+        <h3>Betta Fish🐟</h3>
+        <p>RM 50.00</p>
+        <button onclick="window.location.href='bettafish.html'">View Details</button>
+    </div>
+    <div class="pet-card staggered">
+        <img src="images/cameleon.jfif">
+        <h3>Chameleon 🦎</h3>
+        <p>RM 300.00</p>
+        <button onclick="window.location.href='cameleon.html'">View Details</button>
+    </div>
+    <div class="pet-card staggered">
+        <img src="images/guineapig.jfif">
+        <h3>Guinea Pig 🐹</h3>
+        <p>RM 180.00</p>
+        <button onclick="window.location.href='guineapig.html'">View Details</button>
+    </div>
+    <div class="pet-card staggered">
+        <img src="images/parrot.jfif">
+        <h3>Parrot 🦜</h3>
+        <p>RM 300.00</p>
+        <button onclick="window.location.href='parrot.html'">View Details</button>
+    </div>
+</div>
+</section>
+
+<!-- PRODUCT CATEGORIES -->
+<section class="section">
+<h2 class="section-title">Product Categories 🛒</h2>
+<div class="foods">
+    <div class="food-card staggered">
+        <img src="images/toys.jfif" alt="Pet Toys">
+        <h3>Toys</h3>
+        <p>Fun & durable toys</p>
+        <button onclick="window.location.href='toys.html'">View Product</button>
+    </div>
+    <div class="food-card staggered">
+        <img src="images/food.jfif" alt="Pet Food">
+        <h3>Pet Food</h3>
+        <p>Healthy & nutritious</p>
+        <button onclick="window.location.href='food.html'">View Product</button>
+    </div>
+    <div class="food-card staggered">
+        <img src="images/accessories.jfif" alt="Pet Accessories">
+        <h3>Accessories & Essentials</h3>
+        <p>Comfort & style for pets</p>
+        <button onclick="window.location.href='accessories.html'">View Product</button>
+    </div>
+    <div class="food-card staggered">
+        <img src="images/care.jfif" alt="Pet Care">
+        <h3>Pet Care</h3>
+        <p>Love & care essentials</p>
+        <button onclick="window.location.href='care.html'">View Product</button>
+    </div>
+</div>
+</section>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9AM – 9PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+</body>
+</html>

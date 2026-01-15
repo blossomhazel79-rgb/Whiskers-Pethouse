@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Accessories & Essentials | Whiskers Pethouse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Itim', cursive;
+    background:#FFF5E6;
+    color:#333;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#FFF5E6;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(255,153,51,.15);
+}
+
+.logo{font-size:30px;color:#FF9933;}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#555;
+    font-size:20px;
+}
+nav a:hover{color:#FF9933;}
+
+/* ===== VIDEO SHOP BANNER ===== */
+.shop-banner{
+    position:relative;
+    margin:30px 60px 50px;
+    height:320px;
+    border-radius:45px;
+    overflow:hidden;
+    text-align:center;
+    color:white;
+    animation:fadeDown 1s ease;
+}
+
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.banner-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(.55);
+}
+
+.shop-banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        rgba(255,191,128,.3),
+        rgba(255,153,51,.3)
+    );
+    z-index:1;
+}
+
+.banner-content{
+    position:relative;
+    z-index:2;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.banner-content h1{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+.banner-content p{
+    font-size:22px;
+    opacity:.95;
+}
+
+/* ===== SEARCH ===== */
+.search-box{
+    max-width:420px;
+    margin:40px auto 30px;
+    text-align:center;
+}
+.search-box input{
+    width:100%;
+    padding:14px 22px;
+    border-radius:40px;
+    border:2px solid #FFBF80;
+    font-size:18px;
+}
+
+/* ===== FILTER ===== */
+.filter{
+    text-align:center;
+    margin-bottom:40px;
+}
+.filter button{
+    background:#FFBF80;
+    border:none;
+    padding:10px 25px;
+    margin:8px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+.filter button:hover,
+.filter button.active{
+    background:#FF9933;
+    color:white;
+}
+
+/* ===== GRID ===== */
+.accessories{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:35px;
+    padding:0 60px 60px;
+}
+
+/* ===== CARD ===== */
+.accessories-card{
+    background:white;
+    border-radius:30px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 12px 25px rgba(0,0,0,.1);
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp .8s forwards;
+    transition:.35s;
+    position:relative;
+}
+
+@keyframes fadeUp{
+    to{opacity:1;transform:translateY(0);}
+}
+
+.accessories-card:hover{
+    transform:translateY(-12px) scale(1.05);
+    box-shadow:0 0 30px rgba(255,153,51,.45),
+               0 0 55px rgba(255,191,128,.35);
+}
+
+.accessories-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:22px;
+    margin-bottom:15px;
+}
+
+.accessories-card h3{font-size:22px;margin-bottom:6px;}
+.accessories-card p{font-size:17px;color:#777;margin-bottom:10px;}
+
+.price{
+    font-size:20px;
+    color:#FF9933;
+    margin-bottom:12px;
+}
+
+/* ===== WISHLIST ===== */
+.wishlist{
+    position:absolute;
+    top:15px;
+    right:18px;
+    font-size:24px;
+    cursor:pointer;
+}
+.wishlist.active{color:red;}
+
+/* ===== QTY ===== */
+.qty{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+.qty button{
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:50%;
+    background:#FFBF80;
+    cursor:pointer;
+}
+.qty span{font-size:18px;}
+
+/* ===== BUTTON ===== */
+.accessories-card button.buy{
+    background:#FF9933;
+    color:white;
+    border:none;
+    padding:12px 32px;
+    border-radius:30px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+.accessories-card button.buy:hover{
+    transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#FF9933;
+    color:white;
+    padding:45px;
+    text-align:center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    header{padding:20px 30px;}
+    .food{padding:0 30px 50px;}
+    .shop-banner{margin:20px 30px;}
+    .banner-content h1{font-size:45px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🐾 Whiskers Pethouse</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="services.html">Services</a>
+<a href="about.html">About</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<!-- ===== VIDEO SHOP BANNER ===== -->
+<section class="shop-banner">
+    <video class="banner-video" autoplay muted loop playsinline>
+        <source src="videos/catacc.mp4" type="video/mp4">
+    </video>
+
+    <div class="banner-content">
+        <h1>Pet Accessories & Essentials</h1>
+        <p>Convenient • Safe • Loved by Pets</p>
+    </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" placeholder="Search accessories..." onkeyup="searchToys(this.value)">
+</div>
+
+<!-- FILTER -->
+<div class="filter">
+<button class="active" onclick="filterToys('all',this)">All</button>
+<button onclick="filterToys('cat',this)">Cats</button>
+<button onclick="filterToys('dog',this)">Dogs</button>
+<button onclick="filterToys('small',this)">Small Pets</button>
+</div>
+
+<!-- FOOD -->
+<section class="accessories">
+
+<!-- Cat -->
+<div class="accessories-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/catbed.jfif">
+<h3>Cozy Cat House Bed </h3>
+<p> Using high-quality thickened thermal fabric, breathable.</p>
+<div class="price">RM <span class="p">32</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Cozy Cat House Bed')">Buy Now</button>
+</div>
+
+<!-- Dog -->
+<div class="accessories-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/sst.jfif">
+<h3> Dog Stainless Steel Bowl Water Dish </h3>
+<p>Simple to clean, so feeding time stays hassle-free</p>
+<div class="price">RM <span class="p">8.50</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,' Dog Stainless Steel Bowl Water Dish')">Buy Now</button>
+</div>
+
+<!-- Small -->
+<div class="accessories-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/fta.jfif">
+<h3>Fish tank acrylic aquarium</h3>
+<p>High-transparency material for all-angle observation</p>
+<div class="price">RM <span class="p">28</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Fish tank acrylic aquarium')">Buy Now</button>
+</div>
+
+<!-- Foldable Cat Litter Box-->
+<div class="accessories-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/litterbox.jfif">
+<h3>Foldable Cat Litter Box</h3>
+<p>Super premium quality and easy to carry</p>
+<div class="price">RM <span class="p">55</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Foldable Cat Litter Box')">Buy Now</button>
+</div>
+
+<!-- Sunflower Pillow -->
+<div class="accessories-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/sunflower.jfif">
+<h3>Sunflower Pillow </h3>
+<p> The elastic buckle design can adjust the size at will.</p>
+<div class="price">RM <span class="p">16</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Sunflower Pillow')">Buy Now</button>
+</div>
+
+<!-- Automatic cat food feeder  -->
+<div class="accessories-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/foodfeeder.jfif">
+<h3>Automatic cat feeder</h3>
+<p> featuring a combined food and water dispenser.  </p>
+<div class="price">RM <span class="p">26</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Automatic cat food feeder')">Buy Now</button>
+</div>
+
+<!-- Cat Backpack Carrier -->
+<div class="accessories-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/carrier.jfif">
+<h3>Cat Backpack Carrier</h3>
+<p> Full transparent cover,Space capsule designing</p>
+<div class="price">RM <span class="p">39.90</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Cat Carrier/Backpack Carrier ')">Buy Now</button>
+</div>
+
+<!-- Luxury Cat Tree House-->
+<div class="accessories-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/cattree.jfif">
+<h3>Luxury Cat Tree House</h3>
+<p> Stylish and compact cat tree for entertainment </p>
+<div class="price">RM <span class="p">120</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Luxury Cat Tree House ')">Buy Now</button>
+</div>
+
+<!-- Colourful adjustable cat collar -->
+<div class="accessories-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/collar.jfif">
+<h3>Adjustable cat collar</h3>
+<p>Soft Skin-friendly Anti-suffocation</p>
+<div class="price">RM <span class="p">10</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Adjustable cat collar')">Buy Now</button>
+</div>
+
+<!-- Large cat carrier double door -->
+<div class="accessories-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/airdoor.jfif">
+<h3>Cat carrier double door</h3>
+<p>Sturdy structure with durable materials for long-lasting use.</p>
+<div class="price">RM <span class="p">43</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Cat carrier double door')">Buy Now</button>
+</div>
+
+<!-- Pet Puppy Training Dog Training pad -->
+<div class="accessories-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/ppad.jfif">
+<h3>Puppy Training pad 50pcs </h3>
+<p>super-absorbent core quickly transforms liquid into gel</p>
+<div class="price">RM <span class="p">10</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Puppy Training pad 50pcs')">Buy Now</button>
+</div>
+
+<!-- Avocado adjustable dog collar-->
+<div class="accessories-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/dc.jfif">
+<h3> Avocado adjustable dog collar</h3>
+<p>made of quality fabric does not hurt or cause any sore.</p>
+<div class="price">RM <span class="p">10</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Avocado adjustable dog collar')">Buy Now</button>
+</div>
+
+<!-- Dog chest harness adjustable -->
+<div class="accessories-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/dh.jfif">
+<h3>Dog chest harness adjustable </h3>
+<p> it fits the pet's body, reduces discomfort </p>
+<div class="price">RM <span class="p">15</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Dog chest harness adjustable ')">Buy Now</button>
+</div>
+
+<!-- Pet cooling ice sleeping bed -->
+<div class="accessories-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/ice.jfif">
+<h3>Pet cooling ice sleeping bed</h3>
+<p> helping pets stay comfortable in hot weather. </p>
+<div class="price">RM <span class="p">42</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,' Pet cooling ice sleeping bed ')">Buy Now</button>
+</div>
+
+<!--  Cave Bed Dog House  -->
+<div class="accessories-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/dogcave.jfif">
+<h3> Cave Bed Dog House Nest </h3>
+<p>made soft cotton velvet and sponge materials</p>
+<div class="price">RM <span class="p">43</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Cave Bed Dog House ')">Buy Now</button>
+</div>
+
+<!-- Dog toilet training tray -->
+<div class="accessories-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/dts.jfif">
+<h3>Dog potty toilet training tray</h3>
+<p>Super load-bearing, 50KG load-bearing without pressure </p>
+<div class="price">RM <span class="p">25</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Dog toilet training tray')">Buy Now</button>
+</div>
+
+<!--Car Seat Cover for Dogs  -->
+<div class="accessories-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/carseat.jfif">
+<h3>Car Seat Cover for Dogs </h3>
+<p>The protective pad with door wing fully protect pet seat. </p>
+<div class="price">RM <span class="p">95</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Car Seat Cover for Dogs')">Buy Now</button>
+</div>
+
+<!-- Hamster cute pink cage-->
+<div class="accessories-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/hc.jfif">
+<h3> Hamster cute pink cage</h3>
+<p>Hamster Travel Carrier is made of quality PP material</p>
+<div class="price">RM <span class="p">33</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Hamster cute pink cage')">Buy Now</button>
+</div>
+
+<!--  Bird Cage House Stand -->
+<div class="accessories-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/birdc.jfif">
+<h3> Bird Cage Birdcage House Stand</h3>
+<p>Easy to clean, keep a clean and tidy environment</p>
+<div class="price">RM <span class="p">38</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Bird Cage House Stand ')">Buy Now</button>
+</div>
+
+<!-- Bird Cage Breathable Portable -->
+<div class="accessories-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/portablec.png">
+<h3>Bird Cage Breathable Portable</h3>
+<p> Easy and light cage to bring your bird outside.</p>
+<div class="price">RM <span class="p">88</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Bird Cage Breathable Portable')">Buy Now</button>
+</div>
+
+
+<!-- Hamster Automatic Feeder-->
+<div class="accessories-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/hamsterfeeder.jfif">
+<h3> Hamster Automatic Feeder Bowl</h3>
+<p>Includes a water bottle, food container, and hideout base</p>
+<div class="price">RM <span class="p">8</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Hamster Automatic Feeder')">Buy Now</button>
+</div>
+
+<!-- Bird Feeder Tray with Integrated -->
+<div class="accessories-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/birdfee.jfif">
+<h3>Bird Feeder Tray with Integrated</h3>
+<p> Featuring a lid to avoid food spillage</p>
+<div class="price">RM <span class="p">15</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Bird Feeder Tray with Integrated')">Buy Now</button>
+</div>
+
+<!-- Automatic Aquarium Fish Can Feeder-->
+<div class="accessories-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/fishfeeder.jfif">
+<h3> Automatic Aquarium Fish Can Feeder</h3>
+<p>meet accurate feeding time and countdown time </p>
+<div class="price">RM <span class="p">75</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Automatic Aquarium Fish Can Feeder')">Buy Now</button>
+</div>
+
+<!--Wood Flakes Bedding 1kg-->
+<div class="accessories-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/chipsi.jfif">
+<h3> Wood Flakes Bedding 1kg</h3>
+<p>Fully produced from natural woods</p>
+<div class="price">RM <span class="p">11</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Wood Flakes Bedding 1kg')">Buy Now</button>
+</div>
+
+
+</section>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9AM – 9PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+<script>
+function filterToys(type,btn){
+    document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.accessories-card').forEach(card=>{
+        card.style.display =
+        type==='all'||card.classList.contains(type)
+        ? 'block':'none';
+    });
+}
+
+function searchToys(val){
+    val=val.toLowerCase();
+    document.querySelectorAll('.accessories-card').forEach(card=>{
+        card.style.display=card.innerText.toLowerCase().includes(val)?'block':'none';
+    });
+}
+
+function qtyChange(btn,change){
+    let span=btn.parentElement.querySelector('span');
+    let q=Math.max(1,parseInt(span.innerText)+change);
+    span.innerText=q;
+}
+
+function toggleWish(el){
+    el.classList.toggle('active');
+    el.innerText=el.classList.contains('active')?'❤':'♡';
+}
+
+// ============================
+// Updated goCheckout() with localStorage
+// ============================
+function goCheckout(btn,name){
+    const card = btn.closest('.accessories-card');
+    const price = parseFloat(card.querySelector('.p').innerText);
+    const qty = parseInt(card.querySelector('.qty span').innerText);
+
+    // Ambil cart sedia ada daripada localStorage
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    // Check kalau item dah ada, auto tambah quantity
+    const index = cart.findIndex(item => item.name === name);
+    if(index !== -1){
+        cart[index].qty += qty; // auto sum quantity
+    } else {
+        cart.push({name, price, qty});
+    }
+
+    // Save balik ke localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`${name} (${qty}) added to cart!`);
+
+    // Redirect ke buy.html
+    window.location.href = 'buy.html';
+}
+</script>
+
+</body>
+</html>

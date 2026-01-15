@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | Whiskers Pethouse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Itim', cursive;
+            background: #FFF5E6;
+            color: #333;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: #FFF5E6;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 6px 18px rgba(255, 153, 51, 0.15);
+        }
+
+        .logo {
+            font-size: 30px;
+            color: #FF9933;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            color: #FF9933;
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .about-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 50px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-container h1 {
+            text-align: center;
+            font-size: 45px;
+            color: #FF9933;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 30px;
+            color: #FF9933;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* ===== AFFILIATIONS ===== */
+        .affiliations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .affiliation-item {
+            text-align: center;
+            width: 140px;
+        }
+
+        .affiliations img {
+            width: 120px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .affiliations img:hover {
+            transform: scale(1.1);
+        }
+
+        .affiliation-item span {
+            display: block;
+            margin-top: 8px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #FF9933;
+            color: white;
+            padding: 45px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width: 900px) {
+            header {
+                padding: 20px 30px;
+            }
+
+            .about-container {
+                margin: 40px 20px;
+                padding: 35px;
+            }
+
+            .affiliations {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .affiliation-item {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🐾 Whiskers Pethouse</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="about-container">
+
+    <h1>About Whiskers Pethouse🐾</h1>
+
+    <div class="section">
+        <h2>Who We Are</h2>
+        <p>
+            Whiskers Pethouse is a trusted pet care provider and pet care shop who dedicated to the health, happiness, and well-being of your beloved pets.
+            Founded with a passion for animals, we offer a full range of services from daycare, grooming, veterinary consultations, to training programs.
+            Our team consists of certified professionals committed to providing compassionate care for every pet.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Our Mission</h2>
+        <p>
+            Our mission is to ensure that every pet receives the love, care, and attention they deserve.
+            We aim to provide a safe and enjoyable environment for pets while offering peace of mind to their owners.
+            Through continuous learning and collaboration, Whiskers Pethouse strives to lead in pet care excellence.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Our Vision</h2>
+        <p>
+            To become the leading pet care provider in the region, known for innovation, compassion, and excellence in pet services.
+            We envision a world where pets and their owners enjoy healthier, happier, and more fulfilling lives together.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Affiliations</h2>
+        <p>We proudly collaborate with the following organizations:</p>
+        <div class="affiliations">
+            <div class="affiliation-item">
+                <img src="images/dvs.png" alt="Pet Care Association">
+                <span>Department of
+Veterinary Services,
+Malaysia (DVS)</span>
+            </div>
+            <div class="affiliation-item">
+                <img src="images/mna.png" alt="Veterinary Certified">
+                <span>Malaysian National
+Animal Welfare
+Foundation
+(MNAWF)</span>
+            </div>
+            <div class="affiliation-item">
+                <img src="images/pcs.png" alt="Animal Welfare">
+                <span>Pet Care Services</span>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9.00 AM – 9.00 PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+</body>
+</html>

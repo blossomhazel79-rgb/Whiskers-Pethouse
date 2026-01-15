@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Details | Whiskers Pethouse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Itim', cursive;
+            background: #FFF5E6;
+            color: #333;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: #FFF5E6;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 6px 18px rgba(255, 153, 51, 0.15);
+        }
+
+        .logo {
+            font-size: 30px;
+            color: #FF9933;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            color: #FF9933;
+        }
+
+        /* ===== BLOG CONTAINER ===== */
+        .blog-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 50px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-container h1 {
+            text-align: center;
+            font-size: 45px;
+            color: #FF9933;
+            margin-bottom: 20px;
+        }
+
+        .blog-container img {
+    display: block;       /* center the image */
+    max-width: 50%;       /* your desired width */
+    height: auto;         /* keep aspect ratio */
+    margin: 0 auto;       /* center horizontally */
+    border: 5px solid #FF9933; /* border width, style, color */
+    border-radius: 15px;  /* optional: rounded corners */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* optional: subtle shadow */
+
+        }
+
+        .blog-container p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* ===== BACK BUTTON ===== */
+        .back-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #FF9933;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background: #FFBF80;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #FF9933;
+            color: white;
+            padding: 45px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:900px) {
+            header {
+                padding: 20px 30px;
+            }
+
+            .blog-container {
+                padding: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🐾 Whiskers Pethouse</div>
+    <nav>
+           <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="blog-container">
+    <h1>5 Tips for a Healthy Pet</h1>
+    <img src="images/blog1.jfif" alt="Healthy Pets Tips">
+
+    <p>Keeping your pet healthy is essential for their happiness and longevity. Here are five important tips to ensure your furry friend stays in top condition:</p>
+
+    <p>1. <strong>Balanced Diet:</strong> Provide a mix of high-quality proteins, fats, and carbohydrates. Ensure portion control and avoid overfeeding.</p>
+    <p>2. <strong>Regular Exercise:</strong> Dogs and cats need daily physical activity. Engage in walks, playtime, or interactive toys to keep them active.</p>
+    <p>3. <strong>Routine Vet Checkups:</strong> Regular health screenings prevent diseases and catch health issues early.</p>
+    <p>4. <strong>Proper Grooming:</strong> Regular baths, nail trimming, and brushing help prevent skin issues and keep your pet comfortable.</p>
+    <p>5. <strong>Love & Attention:</strong> Mental health matters! Spend quality time with your pet to strengthen your bond and reduce stress.</p>
+
+    <a href="blog.html" class="back-btn">← Back to Blog</a>
+</section>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9.00 AM – 8.00 PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 HappyPaws Pet Shop</p>
+</footer>
+
+</body>
+</html>

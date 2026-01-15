@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Pet Daycare | Whiskers Pethouse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Itim', cursive;
+    background:#FFF5E6;
+    color:#333;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#FFF5E6;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(255,153,51,.15);
+}
+
+.logo{
+    font-size:30px;
+    color:#FF9933;
+}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#555;
+    font-size:20px;
+}
+
+nav a:hover{
+    color:#FF9933;
+}
+
+/* ===== CONTAINER ===== */
+.daycare-container{
+    max-width:900px;
+    margin:60px auto;
+    background:white;
+    border-radius:30px;
+    padding:50px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.daycare-container h1{
+    text-align:center;
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.daycare-container p.desc{
+    text-align:center;
+    font-size:18px;
+    color:#666;
+    margin-bottom:40px;
+}
+
+/* ===== FORM ===== */
+form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+label{
+    font-size:18px;
+    display:block;
+    margin-bottom:5px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px 15px;
+    font-size:17px;
+    border-radius:12px;
+    border:1px solid #FFBF80;
+}
+
+textarea{
+    resize:none;
+}
+
+.full{
+    grid-column:span 2;
+}
+
+/* ===== NOTE ===== */
+.note{
+    grid-column:span 2;
+    background:#FFBF80;
+    padding:20px;
+    border-radius:20px;
+    text-align:center;
+    font-size:18px;
+}
+
+/* ===== ACTIONS ===== */
+.actions{
+    grid-column:span 2;
+    text-align:center;
+    margin-top:20px;
+}
+
+.actions button{
+    padding:14px 40px;
+    border-radius:40px;
+    font-size:20px;
+    border:none;
+    cursor:pointer;
+    margin:10px;
+}
+
+.confirm{
+    background:#FF9933;
+    color:white;
+}
+
+.cancel{
+    background:#ccc;
+}
+
+/* ===== MODAL ===== */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-box{
+    background:white;
+    padding:40px;
+    border-radius:30px;
+    max-width:520px;
+    width:90%;
+    text-align:center;
+}
+
+.modal-box pre{
+    text-align:left;
+    white-space:pre-wrap;
+    font-size:16px;
+    margin:20px 0;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#FF9933;
+    color:white;
+    padding:45px;
+    text-align:center;
+    margin-top:80px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+
+    header{
+        padding:20px 30px;
+    }
+
+    .daycare-container{
+        margin:40px 20px;
+        padding:35px;
+    }
+
+    form{
+        grid-template-columns:1fr;
+    }
+
+    .full,
+    .note,
+    .actions{
+        grid-column:span 1;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<div class="logo">🐾 Whiskers Pethouse</div>
+<nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="daycare-container">
+
+<h1>Pet Daycare 🐕🐈</h1>
+
+<p class="desc">
+A safe, fun and supervised daycare environment where
+your pets can play, relax and socialize comfortably.
+</p>
+
+<form>
+
+<div>
+<label>Owner Name</label>
+<input type="text" id="owner" required>
+</div>
+
+<div>
+<label>Phone Number</label>
+<input type="text" id="phone" required>
+</div>
+
+<div>
+<label>Pet Name</label>
+<input type="text" id="pet" required>
+</div>
+
+<div>
+<label>Pet Type</label>
+<select id="type">
+<option>Dog</option>
+<option>Cat</option>
+<option>Small Pet</option>
+</select>
+</div>
+
+<div>
+<label>Daycare Package</label>
+<select id="package" onchange="updatePackage()">
+<option value="half" data-price="50">Half Day – RM 50</option>
+<option value="full" data-price="100">Full Day – RM 100 / day</option>
+<option value="weekly" data-price="320">Weekly Pass – RM 320</option>
+</select>
+</div>
+
+<div>
+<label>Total Price</label>
+<input type="text" id="price" value="RM 25" readonly>
+</div>
+
+<div id="daysBox" style="display:none;">
+<label>Number of Days</label>
+<input type="number" id="days" min="1" value="1" onchange="updatePrice()">
+</div>
+
+<div>
+<label>Date</label>
+<input type="date" id="date" required>
+</div>
+
+<div>
+<label>Drop-off Time</label>
+<select id="drop">
+<option>09:00 AM</option>
+<option>10:00 AM</option>
+<option>11:00 AM</option>
+<option>12:00 PM</option>
+<option>01:00 PM</option>
+<option>02:00 PM</option>
+<option>03:00 PM</option>
+<option>04:00 PM</option>
+<option>05:00 PM</option>
+<option>06:00 PM</option>
+<option>07:00 PM</option>
+<option>08:00 PM</option>
+</select>
+</div>
+
+<div>
+<label>Pick-up Time</label>
+<select id="pickup">
+<option>10:00 AM</option>
+<option>11:00 AM</option>
+<option>12:00 PM</option>
+<option>01:00 PM</option>
+<option>02:00 PM</option>
+<option>03:00 PM</option>
+<option>04:00 PM</option>
+<option>05:00 PM</option>
+<option>06:00 PM</option>
+<option>07:00 PM</option>
+<option>08:00 PM</option>
+</select>
+</div>
+
+<div class="full">
+<label>Special Notes</label>
+<textarea rows="3" id="note" placeholder="Allergy, behavior, food instructions"></textarea>
+</div>
+
+
+<div class="note">
+⏰ Operating Hours: 9.00 AM – 9.00 PM<br>
+ ❗   Late pickup will be charge RM10/hour </br>
+📍 Safe & supervised environment at Whiskers Pethouse
+</div>
+
+<div class="actions">
+<button type="button" class="confirm" onclick="confirmBooking()">Confirm Booking</button>
+<button type="button" class="cancel" onclick="history.back()">Cancel</button>
+</div>
+
+</form>
+
+</section>
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<h2>Booking Confirmed 🐾</h2>
+
+<pre id="summary"></pre>
+
+<button class="confirm" style="width:100%;" onclick="sendWhatsApp()">
+📲 Confirm via WhatsApp
+</button>
+
+<br><br>
+
+<button class="cancel" onclick="closeModal()">
+Close
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let whatsappMessage = "";
+
+function updatePackage(){
+
+    const pkgSelect = document.getElementById("package");
+    const pkgType = pkgSelect.value;
+    const daysBox = document.getElementById("daysBox");
+
+    if(pkgType === "full"){
+        daysBox.style.display = "block";
+    }
+    else{
+        daysBox.style.display = "none";
+        document.getElementById("days").value = 1;
+    }
+
+    updatePrice();
+}
+
+function updatePrice(){
+
+    const pkgSelect = document.getElementById("package");
+    const pricePerDay = Number(
+        pkgSelect.options[pkgSelect.selectedIndex].dataset.price
+    );
+
+    const pkgType = pkgSelect.value;
+    const days = Number(document.getElementById("days").value || 1);
+
+    let total = pricePerDay;
+
+    if(pkgType === "full"){
+        total = pricePerDay * days;
+    }
+
+    document.getElementById("price").value = "RM " + total;
+}
+
+function confirmBooking(){
+
+    const ownerVal = document.getElementById("owner").value;
+    const phoneVal = document.getElementById("phone").value;
+    const petVal   = document.getElementById("pet").value;
+    const typeVal  = document.getElementById("type").value;
+
+    const pkgSelect = document.getElementById("package");
+    const pkgText   = pkgSelect.options[pkgSelect.selectedIndex].text;
+    const pkgType   = pkgSelect.value;
+
+    const daysVal   = document.getElementById("days").value;
+    const dateVal   = document.getElementById("date").value;
+    const dropVal   = document.getElementById("drop").value;
+    const pickupVal = document.getElementById("pickup").value;
+    const noteVal   = document.getElementById("note").value;
+    const priceVal  = document.getElementById("price").value;
+
+    if(
+        ownerVal === "" ||
+        phoneVal === "" ||
+        petVal === "" ||
+        dateVal === ""
+    ){
+        alert("Please fill in all required fields");
+        return;
+    }
+
+    let dayText = "";
+
+    if(pkgType === "full"){
+        dayText = "Days: " + daysVal + "\n";
+    }
+
+    const text =
+`Service: Daycare
+
+Owner: ${ownerVal}
+Phone: ${phoneVal}
+
+Pet: ${petVal}
+Type: ${typeVal}
+Package: ${pkgText}
+${dayText}
+Date: ${dateVal}
+Drop-off: ${dropVal}
+Pick-up: ${pickupVal}
+
+Total: ${priceVal}
+
+Notes:
+${noteVal || "-"}`;
+
+    whatsappMessage = text;
+
+    document.getElementById("summary").innerText = text;
+    document.getElementById("modal").style.display = "flex";
+}
+
+function sendWhatsApp(){
+
+    const msg = encodeURIComponent(
+        "Hi Whiskers Pethouse 🐾\n\n" + whatsappMessage
+    );
+
+    window.open(
+        "https://wa.me/60123456789?text=" + msg,
+        "_blank"
+    );
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none";
+}
+
+updatePackage();
+
+</script>
+
+<footer>
+<p>📍 Machang, Kelantan</p>
+<p>⏰ 9.00 AM – 9.00 PM</p>
+<p>📞 012-3456789</p>
+<p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+</body>
+</html>

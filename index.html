@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Paws Pet Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Itim', cursive;
+    background-color: #FFF5E6;
+    color: #333;
+}
+
+/* ================= HEADER ================= */
+header {
+    background: #FFF5E6;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 18px rgba(255,153,51,0.15);
+}
+
+.logo {
+    font-size: 30px;
+    color: #FF9933;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #555;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: #FF9933;
+}
+
+/* ================= HERO ================= */
+.hero {
+    min-height: 85vh;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 50px 50px;
+    overflow: hidden;
+    text-align: left;
+
+    background:
+        linear-gradient(rgba(255,191,128,0.88), rgba(255,153,51,0.88)),
+        url("images/hero-bg.jfif");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-text {
+    max-width: 50%;
+    margin-bottom: 30px;
+}
+
+.hero-text h1 {
+    font-size: 80px;
+    margin-bottom: 15px;
+}
+
+.hero-text .indestructible {
+    color: #000;
+}
+
+.hero-text .dog-toys {
+    color: #cc6600;
+}
+
+.hero-text p {
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.hero-text button {
+    background: #A8E6CF;
+    color: #333;
+    border: none;
+    padding: 15px 36px;
+    border-radius: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.hero-text button:hover {
+    background: #FF9933;
+    color: white;
+    transform: scale(1.05);
+}
+
+.hero img {
+    width: 420px;
+    margin-top: 20px;
+    filter: drop-shadow(0 14px 24px rgba(0,0,0,0.25));
+    transition: transform 0.3s ease;
+}
+
+.hero img:hover {
+    transform: scale(1.05);
+}
+
+/* ================= SECTION ================= */
+.section {
+    padding: 70px 60px;
+}
+
+.section-title {
+    font-size: 34px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #4a2a00;
+    position: relative;
+}
+
+.section-divider{
+    text-align:center;
+    margin-bottom:40px;
+    opacity:.6;
+}
+
+/* Button View More */
+.section-title .view-more {
+    background: #FFBF80;
+    color: #4a2a00;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+
+.section-title .view-more:hover {
+    background: #FF9933;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ================= BUY A PET & PET FOOD ================= */
+.pets, .foods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.pet-card, .food-card {
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.pet-card:hover, .food-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+}
+
+.pet-card img, .food-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.pet-card img:hover, .food-card img:hover {
+    transform: scale(1.05);
+}
+
+.pet-card h3, .food-card h3 {
+    margin-bottom: 5px;
+}
+
+.pet-card p, .food-card p {
+    font-size: 18px;
+    color: #FF9933;
+    margin-bottom: 15px;
+}
+
+.pet-card button, .food-card button, .service-card button {
+    background: #FFBF80;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.pet-card button:hover, .food-card button:hover, .service-card button:hover {
+    background: #FF9933;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ================= SERVICES ================= */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 25px;
+    padding: 25px; 
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+}
+
+.service-card img {
+    width: 100%;
+    height: 220px;         
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+/* ================= TESTIMONIAL ================= */
+.testimonial-slider {
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    margin: auto;
+}
+
+.testimonial-track {
+    display: flex;
+    gap: 20px;
+    animation: scrollTestimonials 20s linear infinite;
+}
+
+.testimonial {
+    min-width: 100%;
+    background: #FF9933; /* orange like footer */
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: scale(1.03);
+}
+
+.stars {
+    color: #FFD700;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.testimonial p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.testimonial strong {
+    font-size: 16px;
+    opacity: 0.95;
+}
+
+@keyframes scrollTestimonials {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-100%); }
+    40% { transform: translateX(-200%); }
+    60% { transform: translateX(-300%); }
+    80% { transform: translateX(-400%); }
+    100% { transform: translateX(0); }
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: #FF9933;
+    color: white;
+    padding: 45px;
+    text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .hero {
+        padding: 60px 30px;
+    }
+
+    .hero img {
+        width: 250px;
+        margin-top: 20px;
+    }
+
+    .testimonial-track {
+        flex-direction: column;
+        animation: none;
+    }
+
+    .testimonial {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    /* Button responsive */
+    .section-title .view-more {
+        display: block;
+        margin: 10px auto 0 auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🐾 Whiskers Pethouse</div>
+    <nav>
+        <a href="#home.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>
+            <span class="indestructible">Best Care For</span>
+            <span class="dog-toys">Your Pets ♡🐾</span>
+        </h1>
+        <p>Everything your furry friend needs – food, toys & love</p>
+        <button onclick="window.location.href='shop.html'">Shop Now</button>
+    </div>
+    <img src="images/cat 3.png" alt="Pet Image">
+</section>
+
+<!-- BUY A PET -->
+<section class="section">
+    <h2 class="section-title">
+        Buy A Pet ⋆˚🐾˖°
+        <button class="view-more" onclick="window.location.href='shop.html'">View More</button>
+    </h2>
+    <div class="pets">
+        <div class="pet-card">
+            <img src="images/sugar glider.jfif">
+            <h3>Sugar Glider 🦝</h3>
+            <p>RM 200.00</p>
+            <button onclick="window.location.href='shop.html'">View Details</button>
+        </div>
+        <div class="pet-card">
+            <img src="images/bsh.jfif">
+            <h3>British Shorthair Kitten 🐱</h3>
+            <p>RM 1,200.00</p>
+            <button onclick="window.location.href='shop.html'">View Details</button>
+        </div>
+        <div class="pet-card">
+            <img src="images/hamster.jfif">
+            <h3>Hamster 🐹</h3>
+            <p>RM 150.00</p>
+            <button onclick="window.location.href='shop.html'">View Details</button>
+        </div>
+        <div class="pet-card">
+            <img src="images/rabbit.jfif">
+            <h3>Mini Rabbit 🐇</h3>
+            <p>RM 350.00</p>
+            <button onclick="window.location.href='shop.html'">View Details</button>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCT CATEGORIES -->
+<section class="section">
+    <h2 class="section-title">
+        Product Categories 🛒🛍️
+        <button class="view-more" onclick="window.location.href='shop.html'">View More</button>
+    </h2>
+    <div class="foods">
+        <div class="food-card">
+            <img src="images/toys.jfif" alt="Pet Toys">
+            <h3>Toys</h3>
+            <p>“Endless fun for your furry friend!”</p>
+            <button onclick="window.location.href='shop.html'">View Product</button>
+        </div>
+        <div class="food-card">
+            <img src="images/food.jfif" alt="Pet Food">
+            <h3>Pet Food</h3>
+            <p>“Healthy pets, happy hearts!”</p>
+            <button onclick="window.location.href='shop.html'">View Product</button>
+        </div>
+        <div class="food-card">
+            <img src="images/accessories.jfif" alt="Pet Accessories">
+            <h3>Accessories & Essentials </h3>
+            <p>“Style meets comfort for every pet!”</p>
+            <button onclick="window.location.href='shop.html'">View Product</button>
+        </div>
+        <div class="food-card">
+            <img src="images/care.jfif" alt="Pet Care">
+            <h3>Pet Care </h3>
+            <p>“Love them. Care for them.”</p>
+            <button onclick="window.location.href='shop.html'">View Product</button>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+    <h2 class="section-title">
+        Our Services ☎️
+        <button class="view-more" onclick="window.location.href='services.html'">View More</button>
+    </h2>
+    <div class="services">
+        <div class="service-card">
+            <img src="images/grooming.jfif" alt="Grooming">
+            <h3>Grooming 🐕</h3>
+            <button onclick="window.location.href='services.html'">Book Now</button>
+        </div>
+        <div class="service-card">
+            <img src="images/Training.jfif" alt="Training">
+            <h3>Training 📝</h3>
+            <button onclick="window.location.href='services.html'">Book Now</button>
+        </div>
+        <div class="service-card">
+            <img src="images/Daycare.jfif" alt="Daycare">
+            <h3>Daycare 🏠</h3>
+            <button onclick="window.location.href='services.html'">Book Now</button>
+        </div>
+         <div class="service-card">
+            <img src="images/Appointment.jfif" alt="Appointment">
+            <h3>Appointment 📅  </h3>
+            <button onclick="window.location.href='services.html'">Book Now</button>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIAL SLIDER -->
+<section class="section">
+<h2 class="section-title">Customer Reviews</h2>
+<p class="section-divider">─── ⭐ 🐾 ⭐ ───</p>
+
+<div class="testimonial-slider">
+    <div class="testimonial-track">
+        <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>“Best pet shop ever! My cat loves the toys and the staff are super friendly.”</p>
+            <strong>— Aina, Kelantan</strong>
+        </div>
+        <div class="testimonial">
+            <div class="stars">★★★★☆</div>
+            <p>“Great selection of pet food and very helpful staff. Highly recommend!”</p>
+            <strong>— Faizal, Kota Bharu</strong>
+        </div>
+        <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>“Amazing grooming service! My cat looks adorable after every visit.”</p>
+            <strong>— Sarah, Pasir Mas</strong>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+// Load testimonials from localStorage
+document.addEventListener("DOMContentLoaded", function() {
+    const testimonialTrack = document.querySelector(".testimonial-track");
+    const storedTestimonials = JSON.parse(localStorage.getItem("feedbacks")) || [];
+
+    storedTestimonials.forEach(fb => {
+        const testimonial = document.createElement("div");
+        testimonial.className = "testimonial";
+        testimonial.innerHTML = `
+            <div class="stars">${fb.rating}</div>
+            <p>“${fb.comment}”</p>
+            <strong>— ${fb.name}, ${fb.location}</strong>
+        `;
+        testimonialTrack.appendChild(testimonial);
+    });
+});
+</script>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9AM – 9PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+</body>
+</html>

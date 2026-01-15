@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cameleon | Whiskers Pethouse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Buy a healthy British Shorthair kitten from HappyPaws. Vaccinated, affectionate, and perfect for families. Reserve your kitten today!">
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Itim', cursive;
+    background: #FFF5E6;
+    color: #333;
+}
+
+header {
+    background: #FFF5E6;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 18px rgba(255,153,51,0.15);
+}
+
+.logo {
+    font-size: 30px;
+    color: #FF9933;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #555;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: #FF9933;
+}
+
+.detail-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12), 0 0 15px rgba(255,191,128,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    animation: fadeUp 0.8s ease both;
+}
+
+.detail-container img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(255,191,128,0.35);
+    transition: 0.3s;
+}
+
+.detail-container img:hover {
+    transform: scale(1.05);
+}
+
+.detail-info {
+    width: 100%;
+    text-align: center;
+}
+
+.detail-info h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #4a2a00;
+}
+
+.detail-info p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.detail-info .price {
+    font-size: 24px;
+    color: #FF9933;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.detail-info ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.detail-info ul li {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.detail-info select {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 1px solid #FFBF80;
+}
+
+.detail-info button {
+    background: #FFBF80;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 35px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 10px;
+}
+
+.detail-info button:hover {
+    background: #FF9933;
+    color: white;
+    transform: scale(1.05);
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 35px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+    transform: scale(1.05);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    background: #FF9933;
+    color: white;
+    padding: 45px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+    .detail-container {
+        padding: 20px;
+    }
+    .detail-info ul {
+        text-align: center;
+        margin-left: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🐾 Whiskers Pethouse</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="services.html">Services</a>
+<a href="about.html">About</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="detail-container">
+<img src="images/cameleon3.jfif" alt="striking fish colors">
+<div class="detail-info">
+<h1>Chameleon 🦎</h1>
+
+<p>Calm, unique, and fascinating to observe. Independent by nature, known for its color-changing ability and slow movements. Best for attentive and responsible pet owners. Healthy and well-maintained, ready to become a special addition to your home.</p>
+
+<ul>
+<li>Unique color-changing ability</li>
+<li>Calm and independent personality</li>
+<li>Best for experienced or attentive owners</li>
+<li>Healthy and well-maintained</li>
+</ul>
+
+<p class="price">RM 300.00</p>
+<p><strong>Reserve your Chameleon today! Limited availability of Colour.</strong></p>
+
+<label for="quantity">Quantity:</label>
+<select id="quantity" name="quantity">
+<option value="1">1 </option>
+<option value="2">2 </option>
+<option value="3">3 </option>
+</select>
+
+<br><br>
+<button onclick="window.location.href='checkout.html?pet=Chameleon&price=300'">Reserve Now</button>
+<button onclick="window.location.href='shop.html'">Close</button>
+<br>
+<a href="https://wa.me/60123456789?text=Hi%20HappyPaws%2C%20I%20am%20interested%20in%20the%20British%20Shorthair%20kitten." class="whatsapp-btn" target="_blank">Contact via WhatsApp</a>
+
+</div>
+</section>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9AM – 9PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+</body>
+</html>

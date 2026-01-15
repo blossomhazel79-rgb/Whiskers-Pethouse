@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog | Whiskers Pethouse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Itim', cursive;
+            background: #FFF5E6;
+            color: #333;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: #FFF5E6;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 6px 18px rgba(255, 153, 51, 0.15);
+        }
+
+        .logo {
+            font-size: 30px;
+            color: #FF9933;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            color: #FF9933;
+        }
+
+        /* ===== BLOG CONTAINER ===== */
+        .blog-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 50px;
+        }
+
+        .blog-container h1 {
+            text-align: center;
+            font-size: 45px;
+            color: #FF9933;
+            margin-bottom: 40px;
+        }
+
+        /* ===== BLOG GRID ===== */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .blog-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-content h3 {
+            color: #FF9933;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .blog-content p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .blog-content a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #FF9933;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .blog-content a:hover {
+            background: #FFBF80;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #FF9933;
+            color: white;
+            padding: 45px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            header {
+                padding: 20px 30px;
+            }
+            .blog-container {
+                padding: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🐾  Whiskers Pethouse</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="blog-container">
+    <h1> Whiskers Pethouse Blog 🐾</h1>
+
+    <div class="blog-grid">
+
+        <div class="blog-item">
+            <img src="images/pct.jfif" alt="Healthy Pets Tips">
+            <div class="blog-content">
+                <h3>5 Tips for a Healthy Pet</h3>
+                <p>Learn the essential tips to keep your pet healthy and happy. From diet to exercise, discover the best practices...</p>
+                <a href="blog-details.html">Read More</a>
+            </div>
+        </div>
+
+        <div class="blog-item">
+            <img src="images/gml.jfif" alt="Grooming Tips">
+            <div class="blog-content">
+                <h3>Grooming Your Pet at Home</h3>
+                <p>Proper grooming keeps your pet clean and comfortable. Discover how to groom dogs and cats safely at home...</p>
+                <a href="blog2.html">Read More</a>
+            </div>
+        </div>
+
+        <div class="blog-item">
+            <img src="images/hang.jfif" alt="Training Your Pet">
+            <div class="blog-content">
+                <h3>Basic Training for Your Pet</h3>
+                <p>Training your pet improves behavior and strengthens your bond. Learn simple techniques suitable for dogs and cats...</p>
+                <a href="blog3.html">Read More</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9.00 AM – 8.00 PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+</body>
+</html>

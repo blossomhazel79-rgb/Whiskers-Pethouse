@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Our Services | Whiskers Pethouse</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Itim', cursive;
+    background:#FFF5E6;
+    color:#333;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#FFF5E6;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(255,153,51,.15);
+}
+
+.logo{
+    font-size:30px;
+    color:#FF9933;
+}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#555;
+    font-size:20px;
+}
+
+nav a:hover{
+    color:#FF9933;
+}
+
+/* ===== SERVICES BANNER ===== */
+.services-banner{
+    position:relative;
+    height:380px;
+    margin:30px 60px 60px;
+    border-radius:45px;
+    overflow:hidden;
+}
+
+.services-banner video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(.55);
+}
+
+.services-banner .content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.services-banner h1{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.services-banner p{
+    font-size:22px;
+}
+
+/* ===== SERVICES GRID ===== */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:40px;
+    padding:0 60px 70px;
+}
+
+/* ===== SERVICE CARD ===== */
+.service-card{
+    background:white;
+    border-radius:30px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 12px 25px rgba(0,0,0,.1);
+    transition:.35s;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 35px rgba(255,153,51,.45);
+}
+
+.service-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:22px;
+    margin-bottom:15px;
+}
+
+.service-card h3{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.service-card p{
+    font-size:17px;
+    color:#666;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.service-card button{
+    background:#FF9933;
+    color:white;
+    border:none;
+    padding:12px 32px;
+    border-radius:30px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.service-card button:hover{
+    transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#FF9933;
+    margin-top: 80px;
+    padding:30px;
+    text-align:center;
+}
+
+@media(max-width:900px){
+
+    header{
+        padding:20px 30px;
+    }
+
+    .services-banner{
+        margin:20px 30px 50px;
+        height:300px;
+    }
+
+    .services-banner h1{
+        font-size:40px;
+    }
+
+    .services{
+        padding:0 30px 50px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">🐾 Whiskers Pethouse</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="services.html">Services</a>
+<a href="about.html">About</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+<section class="services-banner">
+
+<video autoplay muted loop playsinline>
+    <source src="videos/services.mp4" type="video/mp4">
+</video>
+
+<div class="content">
+
+<h1>Pet Care Services 🐶🐱</h1>
+
+<p>
+Professional care • loving hands •
+happy pets every visit
+</p>
+
+</div>
+
+</section>
+
+<section class="services">
+
+<div class="service-card">
+
+<img src="images/cgrm.jfif">
+
+<h3>Pet Grooming</h3>
+
+<p>
+Professional grooming services to keep your pet clean,
+comfortable and healthy with gentle handling,
+premium products and experienced groomers.
+</p>
+
+<button onclick="location.href='grooming.html'">
+Book Now
+</button>
+
+</div>
+
+<div class="service-card">
+
+<img src="images/ctrn.jfif">
+
+<h3>Pet Training</h3>
+
+<p>
+Structured training programs designed to improve
+obedience, behavior and confidence using positive
+reinforcement in a safe and supportive environment.
+</p>
+
+<button onclick="location.href='training.html'">
+Learn More
+</button>
+
+</div>
+
+<div class="service-card">
+
+<img src="images/cdyc.jfif">
+
+<h3>Pet Daycare</h3>
+
+<p>
+A fun and supervised daycare space where your pets
+can socialize, play and relax while receiving
+constant care and attention throughout the day
+when the owners far away.
+</p>
+
+<button onclick="location.href='daycare.html'">
+View Schedule
+</button>
+
+</div>
+
+<div class="service-card">
+
+<img src="images/vapt.jfif">
+
+<h3>Vet Appointment</h3>
+
+<p>
+Convenient appointment scheduling for health checks,
+consultations and follow-ups ensuring your pet
+receives timely care from trusted professionals.
+</p>
+
+<button onclick="location.href='appointment.html'">
+Make Appointment
+</button>
+
+</div>
+
+</section>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9AM – 9PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+</body>
+</html>

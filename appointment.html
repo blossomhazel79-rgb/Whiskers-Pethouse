@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Veterinary Appointment | Whiskers Pethouse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Itim', cursive;
+            background: #FFF5E6;
+            color: #333;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: #FFF5E6;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 6px 18px rgba(255, 153, 51, 0.15);
+        }
+
+        .logo {
+            font-size: 30px;
+            color: #FF9933;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            color: #FF9933;
+        }
+
+        /* ===== CONTAINER ===== */
+        .appointment-container {
+            max-width: 900px;
+            margin: 60px auto;
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .appointment-container h1 {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .appointment-container p.desc {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* ===== FORM ===== */
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 17px;
+            border-radius: 12px;
+            border: 1px solid #FFBF80;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .full {
+            grid-column: span 2;
+        }
+
+        /* ===== PET BOX ===== */
+        .pet-box {
+            grid-column: span 2;
+            background: #FFF1DC;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .pet-box h3 {
+            margin-bottom: 15px;
+            color: #FF9933;
+        }
+
+        .pet-box button.remove-pet {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #FF9933;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* ===== ADD PET ===== */
+        .add-pet {
+            grid-column: span 2;
+            text-align: center;
+        }
+
+        .add-pet button {
+            background: #FFBF80;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* ===== NOTE ===== */
+        .note {
+            grid-column: span 2;
+            background: #FFBF80;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* ===== ACTIONS ===== */
+        .actions {
+            grid-column: span 2;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .actions button {
+            padding: 14px 40px;
+            border-radius: 40px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .confirm {
+            background: #FF9933;
+            color: white;
+        }
+
+        .cancel {
+            background: #ccc;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-box {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 520px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .modal-box pre {
+            text-align: left;
+            white-space: pre-wrap;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #FF9933;
+            color: white;
+            padding: 45px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            header {
+                padding: 20px 30px;
+            }
+
+            .appointment-container {
+                margin: 40px 20px;
+                padding: 35px;
+            }
+
+            form {
+                grid-template-columns: 1fr;
+            }
+
+            .full,
+            .note,
+            .actions,
+            .pet-box,
+            .add-pet {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🐾 Whiskers Pethouse</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="appointment-container">
+
+    <h1>Veterinary Check Appointment 🩺</h1>
+    <p class="desc">Book a health check appointment with our veterinarian.</p>
+
+    <form id="appointmentForm">
+
+        <!-- Owner Info -->
+        <div>
+            <label>Owner Name</label>
+            <input type="text" id="owner" required>
+        </div>
+
+        <div>
+            <label>Phone Number</label>
+            <input type="text" id="phone" required>
+        </div>
+
+        <!-- Pets -->
+        <div id="pets">
+            <div class="pet-box" id="pet-1">
+                <h3>Pet 1</h3>
+                <label>Pet Name</label>
+                <input type="text" class="pet-name" required>
+                <label>Pet Type</label>
+                <select class="pet-type">
+                    <option>Dog</option>
+                    <option>Cat</option>
+                    <option>Small Pet</option>
+                </select>
+                <label>Reason for Check</label>
+                <select class="pet-reason">
+                    <option>General Health Check</option>
+                    <option>Vaccination</option>
+                    <option>Skin / Allergy</option>
+                    <option>Digestive Issue</option>
+                    <option>Injury</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Add Pet Button -->
+        <div class="add-pet">
+            <button type="button" onclick="addPet()">➕ Add Another Pet</button>
+        </div>
+
+        <!-- Date & Time -->
+        <div>
+            <label>Preferred Date</label>
+            <input type="date" id="date" required>
+        </div>
+
+        <div>
+            <label>Preferred Time</label>
+            <select id="time">
+                <option>09:00 AM</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>02:00 PM</option>
+                <option>03:00 PM</option>
+                <option>04:00 PM</option>
+                <option>05:00 PM</option>
+                <option>06:00 PM</option>
+                <option>07:00 PM</option>
+                <option>08:00 PM</option>
+            </select>
+        </div>
+
+        <div class="full">
+            <label>Additional Notes</label>
+            <textarea rows="3" id="note"></textarea>
+        </div>
+
+        <div class="note">
+            ⏰ Operating Hours: 9.00 AM – 9.00 PM<br>
+            🩺 Veterinary health check by appointment only
+        </div>
+
+        <div class="actions">
+            <button type="button" class="confirm" onclick="confirmAppointment()">Confirm Appointment</button>
+            <button type="button" class="cancel" onclick="history.back()">Cancel</button>
+        </div>
+
+    </form>
+
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <h2>Appointment Confirmed 🐾</h2>
+        <pre id="summary"></pre>
+        <button class="confirm" style="width:100%;" onclick="sendWhatsApp()">📲 Confirm via WhatsApp</button>
+        <br><br>
+        <button class="cancel" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+    let petCount = 1;
+    let whatsappMessage = "";
+
+    // Add new pet
+    function addPet() {
+        petCount++;
+        const petsDiv = document.getElementById("pets");
+
+        const petHTML = `
+        <div class="pet-box" id="pet-${petCount}">
+            <h3>Pet ${petCount}</h3>
+            <button type="button" class="remove-pet" onclick="removePet(${petCount})">❌ Remove</button>
+            <label>Pet Name</label>
+            <input type="text" class="pet-name" required>
+            <label>Pet Type</label>
+            <select class="pet-type">
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Small Pet</option>
+            </select>
+            <label>Reason for Check</label>
+            <select class="pet-reason">
+                <option>General Health Check</option>
+                <option>Vaccination</option>
+                <option>Skin / Allergy</option>
+                <option>Digestive Issue</option>
+                <option>Injury</option>
+            </select>
+        </div>
+        `;
+        petsDiv.insertAdjacentHTML("beforeend", petHTML);
+    }
+
+    // Remove a pet
+    function removePet(id) {
+        const petDiv = document.getElementById(`pet-${id}`);
+        if (petDiv) petDiv.remove();
+    }
+
+    // Confirm appointment
+    function confirmAppointment() {
+        const owner = document.getElementById("owner").value;
+        const phone = document.getElementById("phone").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+        const note = document.getElementById("note").value;
+
+        if (!owner || !phone || !date) {
+            alert("Please fill in all required fields");
+            return;
+        }
+
+        let petDetails = "";
+        const names = document.querySelectorAll(".pet-name");
+        const types = document.querySelectorAll(".pet-type");
+        const reasons = document.querySelectorAll(".pet-reason");
+
+        names.forEach((pet, index) => {
+            petDetails += `Pet ${index + 1}:\nName: ${pet.value}\nType: ${types[index].value}\nReason: ${reasons[index].value}\n\n`;
+        });
+
+        const text = `Service: Veterinary Check\n\nOwner: ${owner}\nPhone: ${phone}\n\n${petDetails}Date: ${date}\nTime: ${time}\n\nNotes:\n${note || "-"}`;
+        whatsappMessage = text;
+
+        document.getElementById("summary").innerText = text;
+        document.getElementById("modal").style.display = "flex";
+    }
+
+    // Send to WhatsApp
+    function sendWhatsApp() {
+        const msg = encodeURIComponent("Hi Whiskers Pethouse 🐾\n\n" + whatsappMessage);
+        window.open("https://wa.me/60123456789?text=" + msg, "_blank");
+    }
+
+    // Close modal
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+</script>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9.00 AM – 9.00 PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+</body>
+</html>

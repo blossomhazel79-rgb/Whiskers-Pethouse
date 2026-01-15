@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Accessories & Essentials | Whiskers Pethouse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Itim', cursive;
+    background:#FFF5E6;
+    color:#333;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#FFF5E6;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(255,153,51,.15);
+}
+
+.logo{font-size:30px;color:#FF9933;}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#555;
+    font-size:20px;
+}
+nav a:hover{color:#FF9933;}
+
+/* ===== VIDEO SHOP BANNER ===== */
+.shop-banner{
+    position:relative;
+    margin:30px 60px 50px;
+    height:320px;
+    border-radius:45px;
+    overflow:hidden;
+    text-align:center;
+    color:white;
+    animation:fadeDown 1s ease;
+}
+
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.banner-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(.55);
+}
+
+.shop-banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        rgba(255,191,128,.3),
+        rgba(255,153,51,.3)
+    );
+    z-index:1;
+}
+
+.banner-content{
+    position:relative;
+    z-index:2;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.banner-content h1{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+.banner-content p{
+    font-size:22px;
+    opacity:.95;
+}
+
+/* ===== SEARCH ===== */
+.search-box{
+    max-width:420px;
+    margin:40px auto 30px;
+    text-align:center;
+}
+.search-box input{
+    width:100%;
+    padding:14px 22px;
+    border-radius:40px;
+    border:2px solid #FFBF80;
+    font-size:18px;
+}
+
+/* ===== FILTER ===== */
+.filter{
+    text-align:center;
+    margin-bottom:40px;
+}
+.filter button{
+    background:#FFBF80;
+    border:none;
+    padding:10px 25px;
+    margin:8px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+.filter button:hover,
+.filter button.active{
+    background:#FF9933;
+    color:white;
+}
+
+/* ===== GRID ===== */
+.care{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:35px;
+    padding:0 60px 60px;
+}
+
+/* ===== CARD ===== */
+.care-card{
+    background:white;
+    border-radius:30px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 12px 25px rgba(0,0,0,.1);
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp .8s forwards;
+    transition:.35s;
+    position:relative;
+}
+
+@keyframes fadeUp{
+    to{opacity:1;transform:translateY(0);}
+}
+
+.care-card:hover{
+    transform:translateY(-12px) scale(1.05);
+    box-shadow:0 0 30px rgba(255,153,51,.45),
+               0 0 55px rgba(255,191,128,.35);
+}
+
+.care-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:22px;
+    margin-bottom:15px;
+}
+
+.care-card h3{font-size:22px;margin-bottom:6px;}
+.care-card p{font-size:17px;color:#777;margin-bottom:10px;}
+
+.price{
+    font-size:20px;
+    color:#FF9933;
+    margin-bottom:12px;
+}
+
+/* ===== WISHLIST ===== */
+.wishlist{
+    position:absolute;
+    top:15px;
+    right:18px;
+    font-size:24px;
+    cursor:pointer;
+}
+.wishlist.active{color:red;}
+
+/* ===== QTY ===== */
+.qty{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+.qty button{
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:50%;
+    background:#FFBF80;
+    cursor:pointer;
+}
+.qty span{font-size:18px;}
+
+/* ===== BUTTON ===== */
+.care-card button.buy{
+    background:#FF9933;
+    color:white;
+    border:none;
+    padding:12px 32px;
+    border-radius:30px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+.care-card button.buy:hover{
+    transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#FF9933;
+    color:white;
+    padding:45px;
+    text-align:center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    header{padding:20px 30px;}
+    .food{padding:0 30px 50px;}
+    .shop-banner{margin:20px 30px;}
+    .banner-content h1{font-size:45px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🐾 Whiskers Pethouse</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="services.html">Services</a>
+<a href="about.html">About</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<!-- ===== VIDEO SHOP BANNER ===== -->
+<section class="shop-banner">
+    <video class="banner-video" autoplay muted loop playsinline>
+        <source src="videos/petcare.mp4" type="video/mp4">
+    </video>
+
+    <div class="banner-content">
+        <h1>Pet Care ❤️</h1>
+        <p>Care • Safe • Loved by Pets</p>
+    </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" placeholder="Search pet care..." onkeyup="searchToys(this.value)">
+</div>
+
+<!-- FILTER -->
+<div class="filter">
+<button class="active" onclick="filterToys('all',this)">All</button>
+<button onclick="filterToys('cat',this)">Cats</button>
+<button onclick="filterToys('dog',this)">Dogs</button>
+</div>
+
+<!-- FOOD -->
+<section class="care">
+
+<!-- Cat -->
+<div class="care-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/psc.jfif">
+<h3>Nanovet Pet Skin + Coat Shampoo 500ml </h3>
+<p> No sulfates and no parabens.</p>
+<div class="price">RM <span class="p">32</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Nanovet Pet Skin + Coat Shampoo 500ml')">Buy Now</button>
+</div>
+
+<!-- Dog -->
+<div class="care-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/volume.jfif">
+<h3> Omega Volumizing Shampoo 500ml </h3>
+<p> Leaves the coat looking vibrant.</p>
+<div class="price">RM <span class="p">43</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,' Omega Pets Volumizing Shampoo 500ml')">Buy Now</button>
+</div>
+
+<!-- Nanovet Paw Cleansing Foam 200ml-->
+<div class="care-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/pawsclean.jfif">
+<h3>Nanovet Paw Cleansing Foam 200ml</h3>
+<p>Easy to scrub and remove dirt.</p>
+<div class="price">RM <span class="p">30</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Nanovet Paw Cleansing Foam 200ml')">Buy Now</button>
+</div>
+
+<!-- Nanovet Wild Alaskan Salmon Oil 100ml -->
+<div class="care-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/salmon.jfif">
+<h3>Nanovet Wild Alaskan Salmon Oil 100ml </h3>
+<p> Boost immune system.</p>
+<div class="price">RM <span class="p">29.90</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Nanovet Wild Alaskan Salmon Oil 100ml')">Buy Now</button>
+</div>
+
+<!-- Nanovet Pet Eye + Tear Stain  -->
+<div class="care-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/eyestain.jfif">
+<h3>Nanovet Pet Eye + Tear Stain </h3>
+<p> Relieve redness and irritation.  </p>
+<div class="price">RM <span class="p">35</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Nanovet Pet Eye + Tear Stain ')">Buy Now</button>
+</div>
+
+<!-- Nanovet Pet Grooming Gloves-->
+<div class="care-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/gloves.jfif">
+<h3> Nanovet Pet Grooming Gloves 6pcs/pack</h3>
+<p> Easy to use and no mess.</p>
+<div class="price">RM <span class="p">22</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,' Nanovet Pet Grooming Gloves 6pcs/pack')">Buy Now</button>
+</div>
+
+<!-- Nanovet Pet Hairball Remedy Gel -->
+<div class="care-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/hairball.jfif">
+<h3>Nanovet Pet Hairball Remedy Gel</h3>
+<p>Prevent hairball formation.</p>
+<div class="price">RM <span class="p">43</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Nanovet Pet Hairball Remedy Gel')">Buy Now</button>
+</div>
+
+<!-- ROJECO Pet Spray Hair Comb -->
+<div class="care-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/rojeco.jfif">
+<h3>ROJECO Pet Spray Hair Comb </h3>
+<p> Comfortable grooming </p>
+<div class="price">RM <span class="p">38</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'ROJECO Pet Spray Hair Comb  ')">Buy Now</button>
+</div>
+
+<!-- Pet Nail Clipper with grinder 2in1-->
+<div class="care-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/nailclip.jfif">
+<h3>Pet Nail Clipper with grinder 2in1</h3>
+<p>With adjustable hole</p>
+<div class="price">RM <span class="p">10</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Pet Nail Clipper with grinder 2in')">Buy Now</button>
+</div>
+
+<!-- Omega Pets Dog Wild Alaskan Salmon Oil 240ml-->
+<div class="care-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/salmonoil.png">
+<h3>Omega Pets Alaskan Salmon Oil 240ml </h3>
+<p>Boosts Heart & Immune System</p>
+<div class="price">RM <span class="p">60</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Omega Pets Alaskan Salmon Oil 240ml')">Buy Now</button>
+</div>
+
+<!-- Omega Pets Paw Cleansing Foam 170ml-->
+<div class="care-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/omps.jfif">
+<h3> Omega Pets Paw Cleansing Foam 170ml</h3>
+<p>Supports overall paw health and comfort.</p>
+<div class="price">RM <span class="p">36</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Omega Pets Paw Cleansing Foam 170ml')">Buy Now</button>
+</div>
+
+<!-- Omega Pets Antifungal & Antibacterial Spray -->
+<div class="care-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/fungal.jfif">
+<h3>Omega Pets Antifungal & Antibacterial Spray </h3>
+<p>  helps treat and prevent skin infections. </p>
+<div class="price">RM <span class="p">15</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Omega Pets Antifungal & Antibacterial Spray ')">Buy Now</button>
+</div>
+
+<!-- Omega Pets Flea & Tick Itch Relief-->
+<div class="care-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/flea.png">
+<h3>Omega Pets Flea & Tick Itch Relief</h3>
+<p> provide instant relief from itching and discomfort. </p>
+<div class="price">RM <span class="p">28</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,' Omega Pets Flea & Tick Itch Relief ')">Buy Now</button>
+</div>
+
+<!--  Omega Pets Water Based Ear Cleaner  -->
+<div class="care-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/ear.jfif">
+<h3>  Omega Pets Water Based Ear Cleaner   </h3>
+<p>formulated to gently cleanse and health </p>
+<div class="price">RM <span class="p">26</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,' Omega Pets Water Based Ear Cleaner')">Buy Now</button>
+</div>
+
+<!-- Omega Pets Shampoo Brush Pet Dispenser-->
+<div class="care-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/brush.png">
+<h3>Omega Pets Shampoo Brush Pet Dispenser</h3>
+<p>a versatile grooming tool that enhances effectiveness</p>
+<div class="price">RM <span class="p">10</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Omega Pets Shampoo Brush Pet Dispenser')">Buy Now</button>
+</div>
+
+<!--KOJIMA 360° Pet Toothbrush & Paste Formula -->
+<div class="care-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/kojima.jpg">
+<h3>KOJIMA 360° Pet Toothbrush & Paste </h3>
+<p> Reduce bacteria in the mouth and bad breath. </p>
+<div class="price">RM <span class="p">15</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'KOJIMA 360° Pet Toothbrush & Paste Formula ')">Buy Now</button>
+</div>
+
+</section>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9AM – 9PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+<script>
+function filterToys(type,btn){
+    document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.care-card').forEach(card=>{
+        card.style.display =
+        type==='all'||card.classList.contains(type)
+        ? 'block':'none';
+    });
+}
+
+function searchToys(val){
+    val=val.toLowerCase();
+    document.querySelectorAll('.care-card').forEach(card=>{
+        card.style.display=card.innerText.toLowerCase().includes(val)?'block':'none';
+    });
+}
+
+function qtyChange(btn,change){
+    let span=btn.parentElement.querySelector('span');
+    let q=Math.max(1,parseInt(span.innerText)+change);
+    span.innerText=q;
+}
+
+function toggleWish(el){
+    el.classList.toggle('active');
+    el.innerText=el.classList.contains('active')?'❤':'♡';
+}
+
+// ============================
+// Updated goCheckout() with localStorage
+// ============================
+function goCheckout(btn,name){
+    const card = btn.closest('.care-card');
+    const price = parseFloat(card.querySelector('.p').innerText);
+    const qty = parseInt(card.querySelector('.qty span').innerText);
+
+    // Ambil cart sedia ada daripada localStorage
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    // Check kalau item dah ada, auto tambah quantity
+    const index = cart.findIndex(item => item.name === name);
+    if(index !== -1){
+        cart[index].qty += qty; // auto sum quantity
+    } else {
+        cart.push({name, price, qty});
+    }
+
+    // Save balik ke localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`${name} (${qty}) added to cart!`);
+
+    // Redirect ke buy.html
+    window.location.href = 'buy.html';
+}
+</script>
+
+</body>
+</html>

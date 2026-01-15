@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pet Food | Whiskers Pethouse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Itim', cursive;
+    background:#FFF5E6;
+    color:#333;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#FFF5E6;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(255,153,51,.15);
+}
+
+.logo{font-size:30px;color:#FF9933;}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#555;
+    font-size:20px;
+}
+nav a:hover{color:#FF9933;}
+
+/* ===== VIDEO SHOP BANNER ===== */
+.shop-banner{
+    position:relative;
+    margin:30px 60px 50px;
+    height:320px;
+    border-radius:45px;
+    overflow:hidden;
+    text-align:center;
+    color:white;
+    animation:fadeDown 1s ease;
+}
+
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.banner-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(.55);
+}
+
+.shop-banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        rgba(255,191,128,.3),
+        rgba(255,153,51,.3)
+    );
+    z-index:1;
+}
+
+.banner-content{
+    position:relative;
+    z-index:2;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.banner-content h1{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+.banner-content p{
+    font-size:22px;
+    opacity:.95;
+}
+
+/* ===== SEARCH ===== */
+.search-box{
+    max-width:420px;
+    margin:40px auto 30px;
+    text-align:center;
+}
+.search-box input{
+    width:100%;
+    padding:14px 22px;
+    border-radius:40px;
+    border:2px solid #FFBF80;
+    font-size:18px;
+}
+
+/* ===== FILTER ===== */
+.filter{
+    text-align:center;
+    margin-bottom:40px;
+}
+.filter button{
+    background:#FFBF80;
+    border:none;
+    padding:10px 25px;
+    margin:8px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+.filter button:hover,
+.filter button.active{
+    background:#FF9933;
+    color:white;
+}
+
+/* ===== GRID ===== */
+.food{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:35px;
+    padding:0 60px 60px;
+}
+
+/* ===== CARD ===== */
+.food-card{
+    background:white;
+    border-radius:30px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 12px 25px rgba(0,0,0,.1);
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp .8s forwards;
+    transition:.35s;
+    position:relative;
+}
+
+@keyframes fadeUp{
+    to{opacity:1;transform:translateY(0);}
+}
+
+.food-card:hover{
+    transform:translateY(-12px) scale(1.05);
+    box-shadow:0 0 30px rgba(255,153,51,.45),
+               0 0 55px rgba(255,191,128,.35);
+}
+
+.food-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:22px;
+    margin-bottom:15px;
+}
+
+.food-card h3{font-size:22px;margin-bottom:6px;}
+.food-card p{font-size:17px;color:#777;margin-bottom:10px;}
+
+.price{
+    font-size:20px;
+    color:#FF9933;
+    margin-bottom:12px;
+}
+
+/* ===== WISHLIST ===== */
+.wishlist{
+    position:absolute;
+    top:15px;
+    right:18px;
+    font-size:24px;
+    cursor:pointer;
+}
+.wishlist.active{color:red;}
+
+/* ===== QTY ===== */
+.qty{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+.qty button{
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:50%;
+    background:#FFBF80;
+    cursor:pointer;
+}
+.qty span{font-size:18px;}
+
+/* ===== BUTTON ===== */
+.food-card button.buy{
+    background:#FF9933;
+    color:white;
+    border:none;
+    padding:12px 32px;
+    border-radius:30px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+.food-card button.buy:hover{
+    transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#FF9933;
+    color:white;
+    padding:45px;
+    text-align:center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    header{padding:20px 30px;}
+    .food{padding:0 30px 50px;}
+    .shop-banner{margin:20px 30px;}
+    .banner-content h1{font-size:45px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🐾 Whiskers Pethouse</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="services.html">Services</a>
+<a href="about.html">About</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<!-- ===== VIDEO SHOP BANNER ===== -->
+<section class="shop-banner">
+    <video class="banner-video" autoplay muted loop playsinline>
+        <source src="videos/foodbanner.mp4" type="video/mp4">
+    </video>
+
+    <div class="banner-content">
+        <h1>Pet Food 🍖</h1>
+        <p>Delicious • Safe • Loved by Pets</p>
+    </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" placeholder="Search food..." onkeyup="searchToys(this.value)">
+</div>
+
+<!-- FILTER -->
+<div class="filter">
+<button class="active" onclick="filterToys('all',this)">All</button>
+<button onclick="filterToys('cat',this)">Cats</button>
+<button onclick="filterToys('dog',this)">Dogs</button>
+<button onclick="filterToys('small',this)">Small Pets</button>
+</div>
+
+<!-- FOOD -->
+<section class="food">
+
+<!-- Cat -->
+<div class="food-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/rchairball.jfif">
+<h3>Royal Canin Care Hairball 4KG 🐱</h3>
+<p> Specially for adult cats to reduce hairball formation</p>
+<div class="price">RM <span class="p">181.00</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Royal Canin Care Hairball 4KG')">Buy Now</button>
+</div>
+
+<!-- Dog -->
+<div class="food-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/pbb.jfif">
+<h3>ProBalance Adult Dry Dog Food Beef 15KG</h3>
+<p>Red Meat is rich in protein as well as vitamins B</p>
+<div class="price">RM <span class="p">130</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'ProBalance Adult Dry Dog Food Beef 15KG')">Buy Now</button>
+</div>
+
+<!-- Small -->
+<div class="food-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/hhamster.jfif">
+<h3>Hazel Hamster Tasty Mix 700g🐹</h3>
+<p>Free from added sugar, making it a great choice</p>
+<div class="price">RM <span class="p">28</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Hazel Hamster Tasty Mix 700g')">Buy Now</button>
+</div>
+
+<!-- Royal Canin Indoor -->
+<div class="food-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/rcindoor.jfif">
+<h3>Royal Canin Indoor 4KG 🐾</h3>
+<p>For adult cats living indoors from 1 to 7 years of age</p>
+<div class="price">RM <span class="p">150.60</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Royal Canin Indoor')">Buy Now</button>
+</div>
+
+<!-- Royal Canin Hair & Skin Gravy -->
+<div class="food-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/rcgravy.jfif">
+<h3>Royal Canin Hair & Skin Gravy 85g x 12 </h3>
+<p>Specially for adult cats to help support and healthy skin</p>
+<div class="price">RM <span class="p">55</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Royal Canin Hair & Skin Gravy 85g x 12')">Buy Now</button>
+</div>
+
+<!-- Royal Canin Kitten Gravy  -->
+<div class="food-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/rckt.jfif">
+<h3>Royal Canin Kitten Gravy 85g x 12</h3>
+<p>Specially for kittens up to 12 months old </p>
+<div class="price">RM <span class="p">55</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Royal Canin Kitten Gravy 85g x 12')">Buy Now</button>
+</div>
+
+<!-- Reflex Plus 1.5kg Adult Chicken -->
+<div class="food-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/reflexplus.jfif">
+<h3>Reflex Plus 1.5kg Adult Chicken 🐔</h3>
+<p>Super premium dry cat food with chicken </p>
+<div class="price">RM <span class="p">35</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Reflex Plus 1.5kg Adult Chicken')">Buy Now</button>
+</div>
+
+<!-- Reflex Plus 1.5kg Lamb & Rice Dry Cat Food-->
+<div class="food-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/reflexplus1.jfif">
+<h3>Reflex Plus 1.5kg Lamb & Rice Dry Cat Food</h3>
+<p>premium dry cat food with lamb & rice balanced, </p>
+<div class="price">RM <span class="p">35</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Reflex Plus 1.5kg Lamb & Rice Dry Cat Food ')">Buy Now</button>
+</div>
+
+<!-- Wagyu Premium Cat Stick Heyfur  -->
+<div class="food-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/wagyu.jfif">
+<h3>Wagyu Premium Cat Stick Heyfur 50pcs 🐈</h3>
+<p>Helps build muscle and recover weak cats</p>
+<div class="price">RM <span class="p">30</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Wagyu Premium Cat Stick Heyfur 50pcs')">Buy Now</button>
+</div>
+
+<!-- Wanpy Creamy Cat Treats  -->
+<div class="food-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/wanpy.jfif">
+<h3>Wanpy Creamy Cat Treats 50pcs Mix </h3>
+<p>An interesting pale treat for exacting feline tongues.</p>
+<div class="price">RM <span class="p">42</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Wanpy Creamy Cat Treats 50pcs Mix')">Buy Now</button>
+</div>
+
+<!-- ProBalance Meat Small Breed 1.5kg -->
+<div class="food-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/pbsb.jpeg">
+<h3>ProBalance Meat Small Breed 1.5kg</h3>
+<p>Higher nutrition content to support small breed</p>
+<div class="price">RM <span class="p">19</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'ProBalance Meat Small Breed 1.5kg')">Buy Now</button>
+</div>
+
+<!-- Le Gourmet Hydrolysate 1.5kg x 2 -->
+<div class="food-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/lg.jpg">
+<h3>Le Gourmet Hydrolysate 1.5kg x 2</h3>
+<p>100% Mono Protein suitable for dogs with sensitive skin.</p>
+<div class="price">RM <span class="p">80</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Le Gourmet Hydrolysate 1.5kg x 2')">Buy Now</button>
+</div>
+
+<!-- Probalance 8kg Puppy -->
+<div class="food-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/pbp.png">
+<h3>Probalance 8kg Puppy Dry Food</h3>
+<p>ProBalance Source Chicken, Egg, Milk is the perfect choice </p>
+<div class="price">RM <span class="p">78</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Probalance 8kg Puppy Dry Food')">Buy Now</button>
+</div>
+
+<!-- ProBalance 100g Gourmet -->
+<div class="food-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/pgs.png">
+<h3>ProBalance 100g Gourmet Wet Food</h3>
+<p>Filled with naturally grown ingredients from Australia. </p>
+<div class="price">RM <span class="p">5</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'ProBalance 100g Gourmet ')">Buy Now</button>
+</div>
+
+<!-- Le Gourmet Savory Stew Chicken Meatball -->
+<div class="food-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/lgss.jfif">
+<h3>Le Gourmet Savory Stew Chicken Meatball </h3>
+<p>100% wholesome and balanced diet</p>
+<div class="price">RM <span class="p">10</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Le Gourmet Savory Stew Chicken Meatball')">Buy Now</button>
+</div>
+
+<!-- ProBalance 130g Gravy Pouch-->
+<div class="food-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/gravypouch.jfif">
+<h3>ProBalance 130g Gravy Pouch</h3>
+<p>Treat your growing puppy to a delicious and nutritious meal </p>
+<div class="price">RM <span class="p">4.50</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'ProBalance 130g Gravy Pouch')">Buy Now</button>
+</div>
+
+<!-- ProBalance 700g Loaf Wet  -->
+<div class="food-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/loafwet.jfif">
+<h3>ProBalance 700g Loaf Wet </h3>
+<p>essential for growth, healing and a healthy immune. </p>
+<div class="price">RM <span class="p">12.90</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'ProBalance 700g Loaf Wet')">Buy Now</button>
+</div>
+
+<!-- ZuPreem FruitBlend Bird Food-->
+<div class="food-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/birdfood.jfif">
+<h3>ZuPreem FruitBlend Bird Food 100g 🦜</h3>
+<p>meeting your small bird’s needs with a healthy</p>
+<div class="price">RM <span class="p">28</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'ZuPreem FruitBlend Bird Food 100g')">Buy Now</button>
+</div>
+
+<!-- Science Selective Guinea Pig Food -->
+<div class="food-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/guineafood.jfif">
+<h3>Science Selective Guinea Pig Food 2kg</h3>
+<p>recommended by vets and provides a tasty balanced diet</p>
+<div class="price">RM <span class="p">64.90</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Science Selective Guinea Pig Food')">Buy Now</button>
+</div>
+
+<!-- Science Selective Rabbit Food -->
+<div class="food-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/rabbitfood.jfif">
+<h3>Science Selective Rabbit Food 1.5kg</h3>
+<p> less active lifestyle without the need to extra energy.</p>
+<div class="price">RM <span class="p">75.20</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Science Selective Rabbit Food')">Buy Now</button>
+</div>
+
+
+<!-- Guppy Mini Floating Pellets Fish Food-->
+<div class="food-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/sanyu.jfif">
+<h3> Guppy Mini Floating Pellets Fish Food 155g</h3>
+<p>expertly formulated to support rapid growth.</p>
+<div class="price">RM <span class="p">10</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Guppy Mini Floating Pellets Fish Food')">Buy Now</button>
+</div>
+
+<!-- Petopia Sugar Glider Food -->
+<div class="food-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/petopia.png">
+<h3>Petopia Sugar Glider Food 220g</h3>
+<p>mix with water and serve alongside fresh fruits</p>
+<div class="price">RM <span class="p">56</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Petopia Sugar Glider Food 220g')">Buy Now</button>
+</div>
+
+<!-- Versele Laga Australian Parakeet 1kg-->
+<div class="food-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/paraket.jfif">
+<h3> Versele Laga Parakeet 1kg</h3>
+<p>Enriched seed mixture with extruded VAM-pellets</p>
+<div class="price">RM <span class="p">23.50</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Versele Laga Australian Parakeet 1kg')">Buy Now</button>
+</div>
+
+<!-- Witte Molen Country Snack-->
+<div class="food-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/wittee.jfif">
+<h3> Witte Molen Country Snack 800g</h3>
+<p>With seeds, vegetables, herbs and nuts</p>
+<div class="price">RM <span class="p">23.50</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Witte Molen Country Snack 800g')">Buy Now</button>
+</div>
+
+
+</section>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9AM – 9PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+<script>
+function filterToys(type,btn){
+    document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.food-card').forEach(card=>{
+        card.style.display =
+        type==='all'||card.classList.contains(type)
+        ? 'block':'none';
+    });
+}
+
+function searchToys(val){
+    val=val.toLowerCase();
+    document.querySelectorAll('.food-card').forEach(card=>{
+        card.style.display=card.innerText.toLowerCase().includes(val)?'block':'none';
+    });
+}
+
+function qtyChange(btn,change){
+    let span=btn.parentElement.querySelector('span');
+    let q=Math.max(1,parseInt(span.innerText)+change);
+    span.innerText=q;
+}
+
+function toggleWish(el){
+    el.classList.toggle('active');
+    el.innerText=el.classList.contains('active')?'❤':'♡';
+}
+
+// ============================
+// Updated goCheckout() with localStorage
+// ============================
+function goCheckout(btn,name){
+    const card = btn.closest('.food-card');
+    const price = parseFloat(card.querySelector('.p').innerText);
+    const qty = parseInt(card.querySelector('.qty span').innerText);
+
+    // Ambil cart sedia ada daripada localStorage
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    // Check kalau item dah ada, auto tambah quantity
+    const index = cart.findIndex(item => item.name === name);
+    if(index !== -1){
+        cart[index].qty += qty; // auto sum quantity
+    } else {
+        cart.push({name, price, qty});
+    }
+
+    // Save balik ke localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`${name} (${qty}) added to cart!`);
+
+    // Redirect ke buy.html
+    window.location.href = 'buy.html';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Pet Training | Whiskers Pethouse</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Itim', cursive;
+            background: #FFF5E6;
+            color: #333;
+        }
+
+        header {
+            background: #FFF5E6;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 6px 18px rgba(255, 153, 51, 0.15);
+        }
+
+        .logo {
+            font-size: 30px;
+            color: #FF9933;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            color: #FF9933;
+        }
+
+        .training-container {
+            max-width: 900px;
+            margin: 60px auto;
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .training-container h1 {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .training-container p.desc {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 17px;
+            border-radius: 12px;
+            border: 1px solid #FFBF80;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .full {
+            grid-column: span 2;
+        }
+
+        .note {
+            grid-column: span 2;
+            background: #FFBF80;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .actions {
+            grid-column: span 2;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .actions button {
+            padding: 14px 40px;
+            border-radius: 40px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .confirm {
+            background: #FF9933;
+            color: white;
+        }
+
+        .cancel {
+            background: #ccc;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-box {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 520px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .modal-box pre {
+            text-align: left;
+            white-space: pre-wrap;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        .whatsapp {
+            background: #25D366;
+            color: white;
+            width: 100%;
+            padding: 14px;
+            border-radius: 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+          /* ===== FOOTER ===== */
+        footer{
+    background:#FF9933;
+    margin-top: 80px;
+    padding:30px;
+    text-align:center;
+}
+
+@media(max-width:900px){
+
+    header{
+        padding:20px 30px;
+    }
+
+    .services-banner{
+        margin:20px 30px 50px;
+        height:300px;
+    }
+
+    .services-banner h1{
+        font-size:40px;
+    }
+
+    .services{
+        padding:0 30px 50px;
+    }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">🐾 Whiskers Pethouse </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+    </header>
+
+    <section class="training-container">
+
+        <h1>Pet Training 🎓</h1>
+
+        <p class="desc">
+            Professional training sessions to improve your pet’s behaviour and obedience.
+        </p>
+
+        <form>
+
+            <div>
+                <label>Owner Name</label>
+                <input type="text" id="owner">
+            </div>
+
+            <div>
+                <label>Phone Number</label>
+                <input type="text" id="phone">
+            </div>
+
+            <div>
+                <label>Pet Name</label>
+                <input type="text" id="pet">
+            </div>
+
+            <div>
+                <label>Pet Type</label>
+                <select id="type">
+                    <option>Dog</option>
+                    <option>Cat</option>
+                    <option>Small Pet</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Training Package</label>
+                <select id="package" onchange="updatePrice()">
+                    <option value="50">Basic Training – RM 50</option>
+                    <option value="90">Behaviour Training – RM 90</option>
+                    <option value="150">Advanced Training – RM 150</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Package Price</label>
+                <input type="text" id="price" value="RM 50" readonly>
+            </div>
+
+            <div>
+                <label>Preferred Date</label>
+                <input type="date" id="date">
+            </div>
+
+            <div>
+                <label>Training Time</label>
+                <select id="time">
+                    <option>10:00 AM</option>
+                    <option>11:00 AM</option>
+                    <option>12:00 PM</option>
+                    <option>02:00 PM</option>
+                    <option>03:00 PM</option>
+                    <option>04:00 PM</option>
+                    <option>05:00 PM</option>
+                    <option>06:00 PM</option>
+                </select>
+            </div>
+
+            <div class="full">
+                <label>Special Notes</label>
+                <textarea id="note" rows="3"></textarea>
+            </div>
+
+            <div class="note">
+                ⏰ Training Hours: 10.00 AM – 6.00 PM <br>
+                📍 Sessions conducted at HappyPaws Training Centre
+            </div>
+
+            <div class="actions">
+                <button type="button" class="confirm" onclick="confirmTraining()">
+                    Confirm Booking
+                </button>
+
+                <button type="button" class="cancel" onclick="resetForm()">
+                    Cancel
+                </button>
+            </div>
+
+        </form>
+
+    </section>
+
+    <div class="modal" id="modal">
+
+        <div class="modal-box">
+
+            <h2>Training Booked 🎉</h2>
+
+            <pre id="summary"></pre>
+
+            <button class="whatsapp" onclick="sendWhatsapp()">
+                Confirm via WhatsApp
+            </button>
+
+            <button class="confirm" onclick="closeModal()">
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+    <footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9AM – 9PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+    </footer>
+
+    <script>
+
+        function updatePrice() {
+
+            const pkg = document.getElementById("package");
+
+            document.getElementById("price").value = "RM " + pkg.value;
+
+        }
+
+        function confirmTraining() {
+
+            const owner = document.getElementById("owner").value;
+            const phone = document.getElementById("phone").value;
+            const pet = document.getElementById("pet").value;
+            const type = document.getElementById("type").value;
+            const pkg = document.getElementById("package");
+            const pkgText = pkg.options[pkg.selectedIndex].text;
+            const price = pkg.value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            const note = document.getElementById("note").value;
+
+            if (!owner || !phone || !pet || !date) {
+                alert("Please fill in all required fields");
+                return;
+            }
+
+            window.trainingText =
+`Owner: ${owner}
+Phone: ${phone}
+
+Pet Name: ${pet}
+Pet Type: ${type}
+Training Package: ${pkgText}
+Training Time: ${time}
+Date: ${date}
+
+Total Price: RM ${price}
+
+Notes:
+${note || "-"}`;
+
+            document.getElementById("summary").innerText = window.trainingText;
+
+            document.getElementById("modal").style.display = "flex";
+
+        }
+
+        function sendWhatsapp() {
+
+            const phoneNumber = "60123456789";
+
+            const url =
+                "https://wa.me/" +
+                phoneNumber +
+                "?text=" +
+                encodeURIComponent(window.trainingText);
+
+            window.open(url, "_blank");
+
+        }
+
+        function closeModal() {
+
+            document.getElementById("modal").style.display = "none";
+
+        }
+
+        function resetForm() {
+
+            document.querySelector("form").reset();
+
+            updatePrice();
+
+        }
+
+    </script>
+
+</body>
+
+</html>

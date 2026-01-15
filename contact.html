@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us | Whiskers Pethouse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Itim', cursive;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255,153,51,.08) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(255,191,128,.12) 0%, transparent 35%),
+        #FFF5E6;
+    color:#333;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#FFF5E6;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(255,153,51,.15);
+}
+
+.logo{font-size:30px;color:#FF9933;}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#555;
+    font-size:20px;
+}
+
+nav a:hover{color:#FF9933;}
+
+/* ===== SECTION ===== */
+.section{
+    padding:70px 60px;
+    position:relative;
+}
+
+.section::after{
+    content:"🐾";
+    position:absolute;
+    bottom:20px;
+    right:40px;
+    font-size:40px;
+    opacity:.08;
+}
+
+.section-title{
+    font-size:34px;
+    margin-bottom:10px;
+    text-align:center;
+    color:#4a2a00;
+}
+
+.section-divider{
+    text-align:center;
+    margin-bottom:40px;
+    opacity:.6;
+}
+
+/* ===== CONTACT INFO ===== */
+.contact-info{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:50px;
+    border-radius:30px;
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+    margin-bottom:60px;
+}
+
+.contact-info div{
+    margin-bottom:18px;
+    font-size:18px;
+}
+
+.contact-info a{
+    color:#FF9933;
+    text-decoration:none;
+}
+
+.contact-info a:hover{text-decoration:underline;}
+
+iframe{
+    width:100%;
+    height:450px;
+    border:0;
+    border-radius:20px;
+    margin-top:15px;
+}
+
+/* ===== FEEDBACK FORM ===== */
+.feedback-form{
+    max-width:900px;
+    margin:auto;
+    background:linear-gradient(135deg,#ffffff,#FFF8ED);
+    padding:50px;
+    border-radius:30px;
+    box-shadow:0 15px 40px rgba(255,153,51,.18);
+    margin-bottom:70px;
+}
+
+.feedback-form label{
+    display:block;
+    margin-bottom:5px;
+    font-size:18px;
+}
+
+.feedback-form input,
+.feedback-form textarea,
+.feedback-form select{
+    width:100%;
+    padding:12px 15px;
+    margin-bottom:15px;
+    border-radius:12px;
+    border:1px solid #FFBF80;
+    font-size:17px;
+}
+
+.feedback-form textarea{resize:none;}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus,
+.feedback-form select:focus{
+    outline:none;
+    border-color:#FF9933;
+    box-shadow:0 0 0 3px rgba(255,153,51,.2);
+}
+
+.feedback-form button{
+    background:#FF9933;
+    color:white;
+    border:none;
+    padding:14px 40px;
+    border-radius:40px;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.feedback-form button:hover{
+    background:#FFBF80;
+    color:#333;
+}
+
+/* ===== TESTIMONIAL ===== */
+.testimonial-slider{
+    max-width:900px;
+    margin:auto;
+}
+
+.testimonial-track{
+    display:flex;
+    animation:slide 12s infinite;
+}
+
+.testimonial{
+    background:#FFBF80;
+    padding:25px 20px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
+    margin:0 10px;
+    min-width:100%;
+    transition:.4s;
+}
+
+.testimonial:hover{
+    transform:scale(1.03);
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+.stars{
+    color:#FFD700;
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+@keyframes slide{
+    0%{transform:translateX(0);}
+    33%{transform:translateX(-100%);}
+    66%{transform:translateX(-200%);}
+    100%{transform:translateX(0);}
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#FF9933;
+    color:white;
+    padding:45px;
+    text-align:center;
+    margin-top:50px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    header{padding:20px 30px;}
+    iframe{height:300px;}
+    .testimonial-track{flex-direction:column;animation:none;}
+    .testimonial{min-width:100%;margin-bottom:20px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🐾 Whiskers Pethouse</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="services.html">Services</a>
+<a href="about.html">About</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="section">
+<h2 class="section-title">Contact Information</h2>
+<p class="section-divider">─── 🐶 🐱 🐰 ───</p>
+
+<div class="contact-info">
+<div><strong>Address:</strong>  PT 6688, Kg Hutan Kuin, 18500 Bandar Machang, Kelantan</div>
+<div><strong>Working Hours:</strong> Monday – Sunday: 9.00 AM – 9.00 PM</div>
+<div><strong>Contact Number:</strong> <a href="tel:+60123456789">012-3456789</a></div>
+<div><strong>Our Location:</strong></div>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.646411024791!2d102.2148160740415!3d5.7639170315258905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31b69b2599669c7f%3A0xdccdd791333b8e39!2sWHISKERS%20PET%20HOUSE%20CAWANGAN%20MACHANG%2CKELANTAN!5e0!3m2!1sen!2smy!4v1768399228618!5m2!1sen!2smy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Enquiry & Feedback</h2>
+<p class="section-divider">─── 💌 🐾 💌 ───</p>
+
+<div class="feedback-form">
+<form id="feedbackForm">
+<label>Your Name</label>
+<input type="text" id="name" required>
+
+<label>Location</label>
+<input type="text" id="location" required>
+
+<label>Rating</label>
+<select id="rating" required>
+<option value="">Select stars</option>
+<option>★★★★★</option>
+<option>★★★★☆</option>
+<option>★★★☆☆</option>
+<option>★★☆☆☆</option>
+<option>★☆☆☆☆</option>
+</select>
+
+<label>Comment</label>
+<textarea id="comment" rows="4" required></textarea>
+
+<button type="button" onclick="submitFeedback()">Submit Feedback</button>
+</form>
+</div>
+</section>
+
+<script>
+function submitFeedback() {
+    const name = document.getElementById('name').value;
+    const location = document.getElementById('location').value;
+    const rating = document.getElementById('rating').value;
+    const comment = document.getElementById('comment').value;
+
+    if (!name || !location || !rating || !comment) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    // Save to localStorage
+    const stored = JSON.parse(localStorage.getItem("feedbacks")) || [];
+    stored.push({name, location, rating, comment});
+    localStorage.setItem("feedbacks", JSON.stringify(stored));
+
+    alert('Thank you for your feedback!');
+    document.getElementById('feedbackForm').reset();
+}
+</script>
+
+
+<footer>
+<p>📍 Machang, Kelantan</p>
+<p>⏰ 9AM – 9PM</p>
+<p>📞 012-3456789</p>
+<p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+</body>
+</html>

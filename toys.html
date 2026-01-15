@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Toys | Whiskers Pethouse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Itim', cursive;
+    background:#FFF5E6;
+    color:#333;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#FFF5E6;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(255,153,51,.15);
+}
+
+.logo{font-size:30px;color:#FF9933;}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#555;
+    font-size:20px;
+}
+nav a:hover{color:#FF9933;}
+
+/* ===== VIDEO SHOP BANNER ===== */
+.shop-banner{
+    position:relative;
+    margin:30px 60px 50px;
+    height:320px;
+    border-radius:45px;
+    overflow:hidden;
+    text-align:center;
+    color:white;
+    animation:fadeDown 1s ease;
+}
+
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.banner-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(.55);
+}
+
+.shop-banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        rgba(255,191,128,.3),
+        rgba(255,153,51,.3)
+    );
+    z-index:1;
+}
+
+.banner-content{
+    position:relative;
+    z-index:2;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.banner-content h1{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+.banner-content p{
+    font-size:22px;
+    opacity:.95;
+}
+
+/* ===== SEARCH ===== */
+.search-box{
+    max-width:420px;
+    margin:40px auto 30px;
+    text-align:center;
+}
+.search-box input{
+    width:100%;
+    padding:14px 22px;
+    border-radius:40px;
+    border:2px solid #FFBF80;
+    font-size:18px;
+}
+
+/* ===== FILTER ===== */
+.filter{
+    text-align:center;
+    margin-bottom:40px;
+}
+.filter button{
+    background:#FFBF80;
+    border:none;
+    padding:10px 25px;
+    margin:8px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+.filter button:hover,
+.filter button.active{
+    background:#FF9933;
+    color:white;
+}
+
+/* ===== GRID ===== */
+.toys{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:35px;
+    padding:0 60px 60px;
+}
+
+/* ===== CARD ===== */
+.toy-card{
+    background:white;
+    border-radius:30px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 12px 25px rgba(0,0,0,.1);
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp .8s forwards;
+    transition:.35s;
+    position:relative;
+}
+
+@keyframes fadeUp{
+    to{opacity:1;transform:translateY(0);}
+}
+
+.toy-card:hover{
+    transform:translateY(-12px) scale(1.05);
+    box-shadow:0 0 30px rgba(255,153,51,.45),
+               0 0 55px rgba(255,191,128,.35);
+}
+
+.toy-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:22px;
+    margin-bottom:15px;
+}
+
+.toy-card h3{font-size:22px;margin-bottom:6px;}
+.toy-card p{font-size:17px;color:#777;margin-bottom:10px;}
+
+.price{
+    font-size:20px;
+    color:#FF9933;
+    margin-bottom:12px;
+}
+
+/* ===== WISHLIST ===== */
+.wishlist{
+    position:absolute;
+    top:15px;
+    right:18px;
+    font-size:24px;
+    cursor:pointer;
+}
+.wishlist.active{color:red;}
+
+/* ===== QTY ===== */
+.qty{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+.qty button{
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:50%;
+    background:#FFBF80;
+    cursor:pointer;
+}
+.qty span{font-size:18px;}
+
+/* ===== BUTTON ===== */
+.toy-card button.buy{
+    background:#FF9933;
+    color:white;
+    border:none;
+    padding:12px 32px;
+    border-radius:30px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+.toy-card button.buy:hover{
+    transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#FF9933;
+    color:white;
+    padding:45px;
+    text-align:center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    header{padding:20px 30px;}
+    .toys{padding:0 30px 50px;}
+    .shop-banner{margin:20px 30px;}
+    .banner-content h1{font-size:45px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🐾 Whiskers Pethouse</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="services.html">Services</a>
+<a href="about.html">About</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<!-- ===== VIDEO SHOP BANNER ===== -->
+<section class="shop-banner">
+    <video class="banner-video" autoplay muted loop playsinline>
+        <source src="videos/toysbanner.mp4" type="video/mp4">
+    </video>
+
+    <div class="banner-content">
+        <h1>Pet Toys 🧸</h1>
+        <p>Fun • Safe • Loved by Pets</p>
+    </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" placeholder="Search toys..." onkeyup="searchToys(this.value)">
+</div>
+
+<!-- FILTER -->
+<div class="filter">
+<button class="active" onclick="filterToys('all',this)">All</button>
+<button onclick="filterToys('cat',this)">Cats</button>
+<button onclick="filterToys('dog',this)">Dogs</button>
+<button onclick="filterToys('small',this)">Small Pets</button>
+</div>
+
+<!-- TOYS -->
+<section class="toys">
+
+<!-- Cat -->
+<div class="toy-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/catwand.jfif">
+<h3>Cat Teaser Wand 🐱</h3>
+<p>Interactive & playful</p>
+<div class="price">RM <span class="p">25</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Cat Teaser Wand')">Buy Now</button>
+</div>
+
+<!-- Dog -->
+<div class="toy-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/dogball.jfif">
+<h3>Dog Rubber Ball 🐶</h3>
+<p>Durable & chew-safe</p>
+<div class="price">RM <span class="p">30</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Dog Rubber Ball')">Buy Now</button>
+</div>
+
+<!-- Small -->
+<div class="toy-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/hamsterwheel.jfif">
+<h3>Hamster Wheel 🐹</h3>
+<p>Exercise & fun</p>
+<div class="price">RM <span class="p">35</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Hamster Wheel')">Buy Now</button>
+</div>
+
+<!-- Cat Bell Ball -->
+<div class="toy-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/catball.jfif">
+<h3>Cat Bell Ball 🐾</h3>
+<p>Light & engaging</p>
+<div class="price">RM <span class="p">18</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Cat Bell Ball')">Buy Now</button>
+</div>
+
+<!-- Cat Laser -->
+<div class="toy-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/catlaser.jfif">
+<h3>Cat Pointed Laser 💥</h3>
+<p>Fun & Active</p>
+<div class="price">RM <span class="p">8</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Cat Laser')">Buy Now</button>
+</div>
+
+<!-- Scratch Ball -->
+<div class="toy-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/scratchball.jfif">
+<h3>Scratch Ball 🧶</h3>
+<p>Fun & Active</p>
+<div class="price">RM <span class="p">35</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Scratch Ball')">Buy Now</button>
+</div>
+
+<!-- Cat Plush Fish -->
+<div class="toy-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/catfish.jfif">
+<h3>Cat Plush Fish 🐟</h3>
+<p>Soft to Bite</p>
+<div class="price">RM <span class="p">25</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Cat Plush')">Buy Now</button>
+</div>
+
+<!-- Cat Nip Ball -->
+<div class="toy-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/catnipball.jfif">
+<h3>Cat Nip Ball 🐱🌿</h3>
+<p>Enticing Kitty Fun</p>
+<div class="price">RM <span class="p">6</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Cat Nip')">Buy Now</button>
+</div>
+
+<!-- Cat Tunnel Tube -->
+<div class="toy-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/cattunnel.jfif">
+<h3>Cat Tunnel Tube 🐈</h3>
+<p>Cozy Play Tunnel</p>
+<div class="price">RM <span class="p">30</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Cat Tunnel Tube')">Buy Now</button>
+</div>
+
+<!-- Cat PomPom -->
+<div class="toy-card cat">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/catpompom.jfif">
+<h3>Cat PomPom Ball 🧶</h3>
+<p>Fluffy Ball</p>
+<div class="price">RM <span class="p">10</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Cat PomPom Ball')">Buy Now</button>
+</div>
+
+<!-- Dog Rope Toy -->
+<div class="toy-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/dogrope.jfif">
+<h3>Dog Rope Toy 🦴</h3>
+<p>Strong & interactive</p>
+<div class="price">RM <span class="p">28</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Dog Rope Toy')">Buy Now</button>
+</div>
+
+<!-- Dog Frisbee -->
+<div class="toy-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/frisbee.jfif">
+<h3>Dog Frisbee 🥏</h3>
+<p>Fun & Active</p>
+<div class="price">RM <span class="p">18</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Dog Frisbee')">Buy Now</button>
+</div>
+
+<!-- Dog cinnamon bun -->
+<div class="toy-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/cinnamontoy.jfif">
+<h3>Dog Cinnamon Bun Toy 🥐</h3>
+<p>Bun Bun Plush</p>
+<div class="price">RM <span class="p">25</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Dog Bun Toy')">Buy Now</button>
+</div>
+
+<!-- Dog Carrot Toy -->
+<div class="toy-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/dogcarrot.jfif">
+<h3>Dog Carrot Farm Toy 🥕</h3>
+<p>Good Sense of Smell</p>
+<div class="price">RM <span class="p">47</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Dog Carrot Toy')">Buy Now</button>
+</div>
+
+<!-- Dog Treat -->
+<div class="toy-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/interactivetoy.jfif">
+<h3>Dog Planet Interactive Treat Toy 👾</h3>
+<p>Bun Bun Plush</p>
+<div class="price">RM <span class="p">35</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Dog Interactive Toy')">Buy Now</button>
+</div>
+
+<!-- Dog Squeaky -->
+<div class="toy-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/squeaky.jfif">
+<h3>Dog Squeaky Toys 🥎</h3>
+<p>Soft for Dog Bite</p>
+<div class="price">RM <span class="p">5</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Dog Squeaky')">Buy Now</button>
+</div>
+
+<!-- Dog Bone Sound Toy -->
+<div class="toy-card dog">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/dogbone.jfif">
+<h3>Bone Sound Toy 🦴</h3>
+<p>Playful Dog Toy</p>
+<div class="price">RM <span class="p">12</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Dog Bone Sound Toy')">Buy Now</button>
+</div>
+
+<!-- Bird Swing -->
+<div class="toy-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/birdswing.jfif">
+<h3>Bird Swing 🦜</h3>
+<p>Fun & relaxing</p>
+<div class="price">RM <span class="p">22</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Bird Swing')">Buy Now</button>
+</div>
+
+<!-- Bunny tunnel -->
+<div class="toy-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/bunnytunnel.jfif">
+<h3>Bunny Tunnel 🐇</h3>
+<p>Fun for active play</p>
+<div class="price">RM <span class="p">25.90</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Bunny Tunnel')">Buy Now</button>
+</div>
+
+<!-- Ball Chew -->
+<div class="toy-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/ballchew.jfif">
+<h3>Ball Rolling Chew 🏐</h3>
+<p>For Small Animlas</p>
+<div class="price">RM <span class="p">10.90</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Ball Chew')">Buy Now</button>
+</div>
+
+
+<!-- Wooden Wheel -->
+<div class="toy-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/woodenwheel.jfif">
+<h3>Wooden Wheel 🎡</h3>
+<p>Exercise For Bird</p>
+<div class="price">RM <span class="p">18.00</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Bird Wheel')">Buy Now</button>
+</div>
+
+<!-- Chew Blocks -->
+<div class="toy-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/chewblock.jfif">
+<h3>Chew Block 🧱</h3>
+<p>Enrichment toys</p>
+<div class="price">RM <span class="p">14.90</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Chew Block')">Buy Now</button>
+</div>
+
+<!-- Reptile Ladder -->
+<div class="toy-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/reptileladder.jfif">
+<h3> Reptile Ladder 目</h3>
+<p>Reptile Climbing Stairs</p>
+<div class="price">RM <span class="p">20.00</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Reptile Ladder')">Buy Now</button>
+</div>
+
+<!-- Small Pet Seesaw -->
+<div class="toy-card small">
+<span class="wishlist" onclick="toggleWish(this)">♡</span>
+<img src="images/seesaw.jfif">
+<h3> Small Pet Seesaw 〰️</h3>
+<p> Fun play with seesaw</p>
+<div class="price">RM <span class="p">8.00</span></div>
+<div class="qty">
+<button onclick="qtyChange(this,-1)">−</button>
+<span>1</span>
+<button onclick="qtyChange(this,1)">+</button>
+</div>
+<button class="buy" onclick="goCheckout(this,'Seesaw')">Buy Now</button>
+</div>
+
+
+</section>
+
+<footer>
+    <p>📍 Machang, Kelantan</p>
+    <p>⏰ 9AM – 9PM</p>
+    <p>📞 012-3456789</p>
+    <p>© 2026 Whiskers Pethouse</p>
+</footer>
+
+<script>
+function filterToys(type,btn){
+    document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.toy-card').forEach(card=>{
+        card.style.display =
+        type==='all'||card.classList.contains(type)
+        ? 'block':'none';
+    });
+}
+
+function searchToys(val){
+    val=val.toLowerCase();
+    document.querySelectorAll('.toy-card').forEach(card=>{
+        card.style.display=card.innerText.toLowerCase().includes(val)?'block':'none';
+    });
+}
+
+function qtyChange(btn,change){
+    let span=btn.parentElement.querySelector('span');
+    let q=Math.max(1,parseInt(span.innerText)+change);
+    span.innerText=q;
+}
+
+function toggleWish(el){
+    el.classList.toggle('active');
+    el.innerText=el.classList.contains('active')?'❤':'♡';
+}
+
+// ============================
+// Updated goCheckout() with localStorage
+// ============================
+function goCheckout(btn,name){
+    const card = btn.closest('.toy-card');
+    const price = parseFloat(card.querySelector('.p').innerText);
+    const qty = parseInt(card.querySelector('.qty span').innerText);
+
+    // Ambil cart sedia ada daripada localStorage
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    // Check kalau item dah ada, auto tambah quantity
+    const index = cart.findIndex(item => item.name === name);
+    if(index !== -1){
+        cart[index].qty += qty; // auto sum quantity
+    } else {
+        cart.push({name, price, qty});
+    }
+
+    // Save balik ke localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`${name} (${qty}) added to cart!`);
+
+    // Redirect ke buy.html
+    window.location.href = 'buy.html';
+}
+</script>
+
+</body>
+</html>
